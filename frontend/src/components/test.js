@@ -403,7 +403,7 @@ function generateEachWeb_Test(variant) {
 
           <!--Minh họa-->
           <div class="flex justify-center">
-              <img src="frontend/src/asset/sam model.png" alt="SAM Scale Illustration" class="w-full max-w-lg rounded-xl shadow-md border border-pastel-creamBorder">
+              <img src="../asset/sam model.png" alt="SAM Scale Illustration" class="w-full max-w-lg rounded-xl shadow-md border border-pastel-creamBorder">
           </div>
 
           <!-- Thang đo Likert 1 -> 5 (Dàn 5 cột tự co giãn trên Mobile & Desktop) -->
@@ -629,9 +629,9 @@ function goToStep(targetStep) {
 }
 
 const images = [
-        "frontend/src/asset/hướng-dẫn-thao-tác/Máy tính.jpg",
-        "frontend/src/asset/hướng-dẫn-thao-tác/Phone.png",
-        "frontend/src/asset/hướng-dẫn-thao-tác/song song.png"
+        "../asset/hướng-dẫn-thao-tác/Máy tính.jpg",
+        "../asset/hướng-dẫn-thao-tác/Phone.png",
+        "../asset/hướng-dẫn-thao-tác/song song.png"
     ];
 
     let currentIndex = 0;

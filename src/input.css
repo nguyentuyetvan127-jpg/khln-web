@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@source "../frontend";
+@source "./";
 
 @theme {
   --font-sans: 'Lexend', sans-serif;

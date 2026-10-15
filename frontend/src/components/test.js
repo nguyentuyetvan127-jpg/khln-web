@@ -334,7 +334,7 @@ function renderND_UI_Questions() {
 function generateEachWeb_Test(variant) {
   const webUrl = (variant === 'A') 
     ? 'https://www.vinmec.com/vie/'  // Thay link thật Web A vào đây
-    : 'https://gemini.google.com/app/cfb6725133ec051b?hl=vi'; // Thay link thật Web B vào đây
+    : 'https://web-thuc-nghiem.vercel.app/'; // Thay link thật Web B vào đây
   return `
     <!-- EXPERIMENT SCENARIO BOX -->
     <div class="bg-linear-to-r from-pastel-blueSoft via-pastel-creamCard to-pastel-blueSoft border border-pastel-blueMedium/60 rounded-2xl p-4 sm:p-5 shadow-sm">

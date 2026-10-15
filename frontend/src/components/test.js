@@ -463,7 +463,7 @@ function generateEachWeb_Test(variant) {
           <div class="flex items-center justify-between pt-2">
             <span class="text-xs font-medium text-pastel-textMuted">Mức độ chọn:</span>
             <span class="text-lg font-bold text-pastel-bluePrimary bg-pastel-blueSoft px-3 py-1 rounded-full border border-pastel-blueMedium">
-            <span id="q2_val">5</span> / 10
+            <span id="web${variant}_val">5</span> / 10
             </span>
           </div>
 
@@ -477,7 +477,7 @@ function generateEachWeb_Test(variant) {
             value="5" 
             step="1"
             class="w-full h-2 bg-pastel-creamDark rounded-lg appearance-none cursor-pointer accent-pastel-bluePrimary"
-            oninput="document.getElementById('q2_val').innerText = this.value"
+            oninput="document.getElementById('web${variant}_val').innerText = this.value"
             required 
             />
 

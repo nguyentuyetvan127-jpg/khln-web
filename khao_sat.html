@@ -555,12 +555,13 @@
 
                     <!--Phần 2: chỉ số giới thiệu -->
                     <h3 class="block text-base sm:text-lg font-bold text-pastel-textDark">PHẦN II: CHỈ SỐ GIỚI THIỆU</h3>
+
                     <!--Câu 1-->
                     <div class="space-y-3 p-4 bg-white rounded-2xl border border-pastel-creamBorder">
                         <!-- Tiêu đề câu hỏi -->
                         <div>
                             <h3 class="font-semibold text-sm sm:text-base text-pastel-textDark">
-                            1. Nếu có bạn bè/người thân đang lo lắng về triệu chứng sức khỏe, trên thang từ 0 đến 10, khả năng bạn giới thiệu Web A cho họ là bao nhiêu? 
+                                1. Nếu có bạn bè/người thân đang lo lắng về triệu chứng sức khỏe, trên thang từ 0 đến 10, khả năng bạn giới thiệu Web A cho họ là bao nhiêu? 
                             </h3>
                         </div>
 
@@ -568,37 +569,38 @@
                         <div class="flex items-center justify-between pt-2">
                             <span class="text-xs font-medium text-pastel-textMuted">Mức độ chọn:</span>
                             <span class="text-lg font-bold text-pastel-bluePrimary bg-pastel-blueSoft px-3 py-1 rounded-full border border-pastel-blueMedium">
-                            <span id="q1_val">5</span> / 10
+                                <span id="nps_a_val">5</span> / 10
                             </span>
                         </div>
 
                         <!-- Thanh trượt Slider -->
                         <div class="space-y-2">
                             <input 
-                            type="range" 
-                            name="q1_anxiety_level" 
-                            min="0" 
-                            max="10" 
-                            value="5" 
-                            step="1"
-                            class="w-full h-2 bg-pastel-creamDark rounded-lg appearance-none cursor-pointer accent-pastel-bluePrimary"
-                            oninput="document.getElementById('q1_val').innerText = this.value"
-                            required 
+                                type="range" 
+                                name="q1_recommend_webA" 
+                                min="0" 
+                                max="10" 
+                                value="5" 
+                                step="1"
+                                class="w-full h-2 bg-pastel-creamDark rounded-lg appearance-none cursor-pointer accent-pastel-bluePrimary"
+                                oninput="document.getElementById('nps_a_val').innerText = this.value"
+                                required 
                             />
 
                             <!-- Nhãn 2 đầu 0 và 10 -->
                             <div class="flex justify-between text-[11px] sm:text-xs text-pastel-textMuted font-medium pt-1">
-                                <span class="w-1/2 text-left pr-2">0: Hoàn toàn bình tĩnh / không lo lắng</span>
-                                <span class="w-1/2 text-right pl-2">10: Cực kỳ hoảng sợ / căng thẳng tột độ</span>
+                                <span class="w-1/2 text-left pr-2">0: Chắc chắn không giới thiệu</span>
+                                <span class="w-1/2 text-right pl-2">10: Rất sẵn sàng giới thiệu</span>
                             </div>
                         </div>
                     </div>
+
                     <!--Câu 2-->
                     <div class="space-y-3 p-4 bg-white rounded-2xl border border-pastel-creamBorder">
                         <!-- Tiêu đề câu hỏi -->
                         <div>
                             <h3 class="font-semibold text-sm sm:text-base text-pastel-textDark">
-                            2. Nếu có bạn bè/người thân đang lo lắng về triệu chứng sức khỏe, trên thang từ 0 đến 10, khả năng bạn giới thiệu Web B cho họ là bao nhiêu? 
+                                2. Nếu có bạn bè/người thân đang lo lắng về triệu chứng sức khỏe, trên thang từ 0 đến 10, khả năng bạn giới thiệu Web B cho họ là bao nhiêu? 
                             </h3>
                         </div>
 
@@ -606,28 +608,28 @@
                         <div class="flex items-center justify-between pt-2">
                             <span class="text-xs font-medium text-pastel-textMuted">Mức độ chọn:</span>
                             <span class="text-lg font-bold text-pastel-bluePrimary bg-pastel-blueSoft px-3 py-1 rounded-full border border-pastel-blueMedium">
-                            <span id="q2_val">5</span> / 10
+                                <span id="nps_b_val">5</span> / 10
                             </span>
                         </div>
 
                         <!-- Thanh trượt Slider -->
                         <div class="space-y-2">
                             <input 
-                            type="range" 
-                            name="q2_anxiety_level" 
-                            min="0" 
-                            max="10" 
-                            value="5" 
-                            step="1"
-                            class="w-full h-2 bg-pastel-creamDark rounded-lg appearance-none cursor-pointer accent-pastel-bluePrimary"
-                            oninput="document.getElementById('q2_val').innerText = this.value"
-                            required 
+                                type="range" 
+                                name="q2_recommend_webB" 
+                                min="0" 
+                                max="10" 
+                                value="5" 
+                                step="1"
+                                class="w-full h-2 bg-pastel-creamDark rounded-lg appearance-none cursor-pointer accent-pastel-bluePrimary"
+                                oninput="document.getElementById('nps_b_val').innerText = this.value"
+                                required 
                             />
 
                             <!-- Nhãn 2 đầu 0 và 10 -->
                             <div class="flex justify-between text-[11px] sm:text-xs text-pastel-textMuted font-medium pt-1">
-                                <span class="w-1/2 text-left pr-2">0: Hoàn toàn bình tĩnh / không lo lắng</span>
-                                <span class="w-1/2 text-right pl-2">10: Cực kỳ hoảng sợ / căng thẳng tột độ</span>
+                                <span class="w-1/2 text-left pr-2">0: Chắc chắn không giới thiệu</span>
+                                <span class="w-1/2 text-right pl-2">10: Rất sẵn sàng giới thiệu</span>
                             </div>
                         </div>
                     </div>

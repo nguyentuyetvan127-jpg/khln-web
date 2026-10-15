@@ -403,7 +403,7 @@ function generateEachWeb_Test(variant) {
 
           <!--Minh họa-->
           <div class="flex justify-center">
-              <img src="../asset/sam model.png" alt="SAM Scale Illustration" class="w-full max-w-lg rounded-xl shadow-md border border-pastel-creamBorder">
+              <img src="../asset/sam_model.png" alt="SAM Scale Illustration" class="w-full max-w-lg rounded-xl shadow-md border border-pastel-creamBorder">
           </div>
 
           <!-- Thang đo Likert 1 -> 5 (Dàn 5 cột tự co giãn trên Mobile & Desktop) -->
@@ -629,9 +629,9 @@ function goToStep(targetStep) {
 }
 
 const images = [
-        "../asset/hướng-dẫn-thao-tác/Máy tính.jpg",
-        "../asset/hướng-dẫn-thao-tác/Phone.png",
-        "../asset/hướng-dẫn-thao-tác/song song.png"
+        "../asset/hd_thao_tac/may_tinh.jpg",
+        "../asset/hd_thao_tac/dien_thoai.jpg",
+        "../asset/hd_thao_tac/song_song.jpg"
     ];
 
     let currentIndex = 0;

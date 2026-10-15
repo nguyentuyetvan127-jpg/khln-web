@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Font chữ-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <title>Web Y Khoa</title>
+    <!-- Nhúng file CSS mà Tailwind biên dịch ra -->
+    <link href="../../../dist/output.css" rel="stylesheet">
+    <!--Icon-->
+    <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
+    <!--Hiệu ứng cuộn-->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+</head>
+
+<body class="bg-[#EFEEE5] h-screen flex flex-col w-full">
+    <header class="flex justify-center w-full bg-[#84C5E4] py-2">
+      <div class="flex flex-row justify-between items-center w-full px-4 lg:px-8">
+        <a href="diagnosis.html" class="bg-white text-[#56ADD7] text-[22px] font-medium rounded-full px-2">Quay lại</a>
+        <a href="index.html" 
+          class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-sm hover:bg-gray-100 transition-colors" 
+          aria-label="Trang chủ">
+          <ion-icon name="home" class="text-[#253464] text-2xl"></ion-icon>
+        </a>
+      </div>
+    </header>
+
+    <main class="w-full flex lg:flex-row flex-col">
+      <!--Kết quả bệnh-->
+      <section class="flex flex-col justify-center gap-2 lg:pr-0 lg:pl-4 px-4 lg:flex-1 max-w-lg mt-4">
+        <div class="lg:flex-1 lg:flex lg:flex-col lg:gap-2 lg:relative">
+          <span class="font-medium text-[#253464] lg:text-[20px] text-[18px] wrap-break-word">Có thể bạn đang gặp các biểu hiện của:</span> 
+          <div class="peer lg:flex flex-row gap-2 cursor-pointer hidden">
+            <div class="w-5 h-5 rounded-full bg-[#84C5E4]"></div>
+            <span class="font-medium text-[16px] text-[#253464]">Lưu ý về kết quả của bạn</span>
+          </div>
+          <div class="absolute bottom-[-120%] left-0 w-sm bg-white hidden peer-hover:flex flex-col justify-center py-2 px-4 shadow-[0_4px_4px_#84C5E4] rounded-2xl">
+            <span class="text-[16px] text-[#253464] font-medium">Những kết quả tương thích trên không mang tính khẳng định tuyệt đối. Lựa chọn an toàn và rõ ràng nhất cho bạn lúc này luôn là trao đổi trực tiếp với bác sĩ.</span>
+          </div>
+        </div>
+        <!--Khung bệnh-->
+        <div id="diseaseListContainer" class="flex lg:flex-5 lg:flex-col flex-row lg:gap-4 gap-2 overflow-y-auto lg:mb-2 lg:pb-2 pb-4 lg:rounded-2xl lg:bg-[#C4DDE9]"></div>
+      </section>
+
+      <!--Chi tiết bệnh-->
+      <section id="result-container" class="flex flex-col lg:flex-2 justify-center items-center bg-white my-4 mx-4 lg:px-12 px-4 py-2 rounded-2xl lg:gap-1 gap-4 shadow-[0_5px_4px_#84C5E4]">   
+      </section>
+    </main>
+    <script src="../components/result.js"></script>
+</body>
+
+</html>
+
+
+
+                            

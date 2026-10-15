@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Font chữ-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <title>Web Y Khoa</title>
+    <!-- Nhúng file CSS mà Tailwind biên dịch ra -->
+    <link href="../../../dist/output.css" rel="stylesheet">
+    <!--Icon-->
+    <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
+    <!--Hiệu ứng cuộn-->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+</head>
+
+<body class="bg-[#84C5E4] h-screen">
+    <header>
+        <nav class="mx-10 lg:mt-4 relative z-50">
+            <div class="nav-links duration-500 lg:static absolute lg:min-h-fit min-h-[60vh] bottom-0 lg:translate-y-0 -translate-y-full lg:w-auto w-full flex items-center bg-white lg:bg-[#84C5E4]">
+                <ul class="flex lg:flex-row flex-col gap-6 items-center w-full">
+                    <li>
+                        <a href="index.html" class="lg:text-white text-[#56ADD7] text-[20px] font-medium hover:underline hover:underline-offset-8 decoration-[3px]">Trang chủ</a>
+                    </li>
+                    <li>
+                        <a href="about.html" class="lg:text-[#56ADD7] text-white text-[25px] font-medium lg:bg-white bg-[#56ADD7] rounded-[99px] px-6">Giới thiệu</a>
+                    </li>
+                    <li>
+                        <a href="#" class="lg:text-white text-[#56ADD7] text-[20px] font-medium hover:underline hover:underline-offset-8 decoration-[3px]">Cách hoạt động</a>
+                    </li>
+                    <li>
+                        <a href="login.html" class="lg:text-white text-[#56ADD7] text-[20px] font-medium hover:underline hover:underline-offset-8 decoration-[3px]">Đăng nhập/Đăng ký</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="flex justify-end items-center">
+                <ion-icon name="menu-outline" onclick="onToggleMenu(this)" class="text-5xl text-white text-bold cursor-pointer lg:hidden"></ion-icon>
+            </div>
+        </nav>
+    </header> 
+
+    <!--Our story-->
+    <section class="flex lg:flex-row lg:justify-between items-center h-screen w-4/5 mx-auto">
+        <!--Phần chữ-->
+        <div class="flex flex-col gap-4 max-w-xl" data-aos="fade-right">
+            <p class="text-white lg:text-[58px] text-[45px] font-semibold text-right">CÂU CHUYỆN CỦA CHÚNG MÌNH</p>
+            <p class="text-white lg:text-[26px] text-[20px] font-medium text-right"> ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur cillum dolore eu fugiat nulla pariatur.</p>
+        </div>
+        <!--Phần ảnh-->
+        <div data-aos="fade-left">
+            <img src="../asset/home.webp" class="lg:w-100 lg:h-100 w-0 h-0 object-cover rounded-[99px]">
+        </div>
+        
+    </section>
+
+    <!--Built on trust-->
+    <section class="lg:h-screen h-fit py-20 bg-[#EFEEE5] flex justify-center items-center">  
+        <div class="bg-[#C4DDE9] flex lg:flex-row flex-col justify-center items-center w-full gap-12 py-6 px-5">
+            <!--Ảnh-->
+            <div data-aos="zoom-in">
+                <img src="../asset/builtOntrust.png" class="lg:w-100 lg:h-100 w-0 h-0 object-cover">
+            </div>
+            <!--Chữ-->
+            <div class="flex flex-col lg:gap-4 gap-2 max-w-lg" data-aos="zoom-in">
+                <p class="text-[#091A4F] lg:text-[58px] text-[51px] font-semibold">ĐẶT NIỀM TIN LÀM GỐC</p>
+                <p class="text-[#253464] lg:text-[26px] text-[23px] font-medium">We believe in building long-term relationships based on transparency, integrity, and mutual respect.</p>
+            </div>
+        </div>
+    </section>
+
+    <!--Behind the scenes-->
+    <section class="h-screen flex flex-col justify-center bg-white w-full lg:px-20 px-5 gap-6">
+        <!--Tiêu đề-->
+        <div class="">
+            <p class="text-[#253464] lg:text-[58px] text-[51px] font-semibold">ĐỘI NGŨ</p>
+            <p class="text-[#253464] lg:text-[58px] text-[51px] font-semibold">ĐẰNG SAU DỰ ÁN</p>
+        </div>
+        <!--Nội dung-->
+        <div class="flex lg:flex-row flex-col justify-between items-center lg:w-4/5 lg:mx-auto gap-6">
+            <div data-aos="fade-down" class="flex lg:flex-col flex-row lg:items-center items-start justify-center lg:gap-2 gap-6">
+                <img src="../asset/BHJT.png" class="lg:w-50 lg:h-50 w-35 h-35 rounded-full object-cover">
+                <div class="flex flex-col items-center justify-center">
+                    <p class="text-[#091A4F] font-medium lg:text-[30px] text-[30px] text-center">Mình tên là Cát Tường (Jay)</p>
+                    <p class="text-[#253464] font-medium lg:text-[20px] text-[20px] text-center max-w-70">Mình muốn làm bác sĩ trong tương lai.</p>
+                </div>
+            </div>
+            <!--Second person-->
+            <div data-aos="fade-down" class="flex lg:flex-col flex-row items-center justify-center lg:gap-2 gap-6">
+                <img src="../asset/BHJV.png" class="lg:w-50 lg:h-50 w-35 h-35 rounded-full object-cover">
+                <div class="flex lg:items-center items-start justify-center flex-col">
+                    <p class="text-[#091A4F] font-medium lg:text-[30px] text-[30px] text-center">Mình tên là Tuyết Vân (Alice)</p>
+                    <p class="text-[#253464] font-medium lg:text-[20px] text-[20px] text-center max-w-70">Mình muốn trở thành một tỷ phú trong tương lai.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="../components/navbar.js"></script>
+    <!--Hiệu ứng AOS-cuộn-->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000, // Thời gian hiệu ứng (1 giây)
+            once: true      // Chỉ chạy animation 1 lần khi cuộn tới
+        });
+    </script>
+</body>
+</html>

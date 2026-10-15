@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NCKH - Khảo Sát Sức Khỏe Tâm Lý & Tra Cứu Y Khoa</title>
+    <!--Font chữ-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <link href="../../../dist/output.css" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #FAF6EE;
+            color: #2D3748;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Custom smooth scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAF6EE;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #B2D8FB;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4A90E2;
+        }
+
+        .custom-radio:checked + div {
+            background-color: #E6F0FA;
+            border-color: #4A90E2;
+            color: #2C5898;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(74, 144, 226, 0.15);
+        }
+
+        .custom-radio:checked + div .radio-dot {
+            border-color: #4A90E2;
+            background-color: #4A90E2;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between p-3 sm:p-6 antialiased">
+
+    <div class="max-w-4xl mx-auto w-full grow flex flex-col justify-between gap-4">
+        
+        <!-- TOP NAVIGATION & GLOBAL PROGRESS BAR -->
+        <header class="bg-pastel-creamCard border border-pastel-creamBorder rounded-2xl p-4 shadow-sm backdrop-blur-md">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-pastel-blueSoft border border-pastel-blueMedium flex items-center justify-center text-pastel-blueDark font-bold">
+                        <i class="fa-solid fa-flask"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold tracking-wider text-pastel-blueDark uppercase bg-pastel-blueSoft px-2.5 py-0.5 rounded-full border border-pastel-blueMedium/50">Dự án NCKH</span>
+                        <h1 class="text-base sm:text-lg font-bold text-pastel-textDark leading-tight">Nghiên cứu giải pháp Calming UI/UX cho ứng dụng sức khỏe giới trẻ</h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- MAIN WORKFLOW CONTAINER -->
+        <main class="grow flex flex-col justify-center my-2">
+
+            <!-- ==========================================
+                 PAGE 1: CAM KẾT KHẢO SÁT
+                 ========================================== -->
+            <section id="step1" class="fade-in bg-pastel-creamCard border border-pastel-creamBorder rounded-2xl p-5 sm:p-8 shadow-sm">
+                
+                <div class="border-b border-pastel-creamBorder pb-4 mb-6">
+                    <h2 class="text-xl sm:text-2xl font-bold text-pastel-textDark">THÔNG TIN & CAM KẾT BẢO MẬT</h2>
+                    <p class="text-sm text-pastel-textMuted mt-1">
+                        Mọi thông tin và phản hồi của bạn đều được mã hóa tuyệt đối và không lưu trữ dữ liệu định danh cá nhân.
+                    </p>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="space-y-2">
+                        <span class="block text-sm sm:text-base font-semibold text-pastel-textDark">1. Cam kết Bảo mật & Ẩn danh</span>
+                        <span class="block text-sm sm:text-base">
+                            Toàn bộ thông tin và câu trả lời của bạn sẽ được mã hóa và giữ ẩn danh 100%. Chúng mình KHÔNG thu thập các thông tin định danh cá nhân như Họ tên, Số điện thoại, hay Địa chỉ nhà. Dữ liệu thu thập chỉ phục vụ duy nhất cho mục đích phân tích khoa học và cải thiện trải nghiệm người dùng.
+                        </span>
+                    </div>
+                    <div class="space-y-2">
+                        <span class="block text-sm sm:text-base font-semibold text-pastel-textDark">2. Quyền Tự nguyện</span>
+                        <span class="block text-sm sm:text-base">
+                            Việc tham gia khảo sát này là hoàn toàn tự nguyện. Bạn có quyền dừng làm bài hoặc thoát khỏi form bất kỳ lúc nào nếu cảm thấy không thoải mái mà không chịu bất kỳ sự ràng buộc nào.
+                        </span>
+                    </div>
+                    <div class="space-y-2">
+                        <span class="block text-sm sm:text-base font-semibold text-pastel-textDark">3. Tuyên bố Miễn trừ Trách nhiệm Y khoa</span>
+                        <span class="block text-sm sm:text-base">
+                            Các thông tin, kịch bản bệnh lý và giao diện xuất hiện trong bài test này chỉ mang tính chất giả định phục vụ cho việc nghiên cứu UX/UI. Đây KHÔNG phải là chẩn đoán y khoa thực tế và không thay thế cho lời khuyên từ bác sĩ chuyên khoa.
+                        </span>
+                    </div>
+                    <div class="space-y-2">
+                        <span class="block text-sm sm:text-base font-semibold text-pastel-textDark">4. Khái quát Thời gian & Mục đích</span>
+                        <span class="block text-sm sm:text-base">
+                            Bài khảo sát kéo dài khoảng 10-12 phút, nhằm mục đích tìm hiểu trải nghiệm tra cứu thông tin sức khỏe của giới trẻ. Sự chia sẻ chân thực của bạn là đóng góp rất lớn cho dự án.
+                        </span>
+                    </div>
+                    <label class="flex items-start gap-2.5 font-bold text-md leading-snug text-pastel-textDark cursor-pointer max-w-2xl select-none mt-4">
+                        <input type="checkbox" class="w-4 h-4 mt-1 cursor-pointer accent-pastel-blue" />
+                        <span>Tôi đã đọc, hiểu rõ các thông tin trên và ĐỒNG Ý tham gia bài khảo sát này.</span>
+                    </label>
+                    <div class="pt-4 flex justify-end">
+                        <button type="submit" onclick="goToStep(2)" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-pastel-bluePrimary hover:bg-pastel-blueDark text-white font-semibold text-sm transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 group">
+                            <span>TIẾP TỤC</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 PAGE 2: BẢNG KHẢO SÁT BAN ĐẦU
+                 ========================================== -->
+            <section id="step2" class="hidden fade-in bg-pastel-creamCard border border-pastel-creamBorder rounded-2xl p-5 sm:p-8 shadow-sm">
+                
+                <div class="border-b border-pastel-creamBorder pb-4 mb-6">
+                    <h2 class="text-xl sm:text-2xl font-bold text-pastel-textDark">BẢNG KHẢO SÁT SỨC KHỎE TÂM LÝ BAN ĐẦU</h2>
+                </div>
+
+                <form id="formStep2" onsubmit="event.preventDefault(); goToStep(3);" class="space-y-6">
+                    <!--Phần I: Thông tin cơ bản-->
+                    <h3 class="block text-base sm:text-xl font-bold text-pastel-textDark">PHẦN I: THÔNG TIN CƠ BẢN</h3>
+                    <!-- Question 1 -->
+                    <div class="space-y-3">
+                        <label class="block text-sm sm:text-base font-semibold text-pastel-textDark">
+                            1. Bạn bao nhiêu tuổi?
+                        </label>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <label class="cursor-pointer">
+                                <input type="radio" name="q1_age" value="Dưới 15 tuổi" class="sr-only custom-radio" required>
+                                <div class="p-3.5 rounded-xl border border-pastel-creamBorder bg-pastel-creamBg hover:bg-pastel-blueSoft/50 transition-all flex items-center gap-3">
+                                    <div class="radio-dot w-4 h-4 rounded-full border-2 border-pastel-textMuted shrink-0"></div>
+                                    <span class="text-sm font-medium">Dưới 15 tuổi</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="q1_age" value="15 - 18 tuổi" class="sr-only custom-radio">
+                                <div class="p-3.5 rounded-xl border border-pastel-creamBorder bg-pastel-creamBg hover:bg-pastel-blueSoft/50 transition-all flex items-center gap-3">
+                                    <div class="radio-dot w-4 h-4 rounded-full border-2 border-pastel-textMuted shrink-0"></div>
+                                    <span class="text-sm font-medium">15 - 18 tuổi</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="q1_age" value="18 tuổi trở lên" class="sr-only custom-radio">
+                                <div class="p-3.5 rounded-xl border border-pastel-creamBorder bg-pastel-creamBg hover:bg-pastel-blueSoft/50 transition-all flex items-center gap-3">
+                                    <div class="radio-dot w-4 h-4 rounded-full border-2 border-pastel-textMuted shrink-0"></div>
+                                    <span class="text-sm font-medium">18 tuổi trở lên</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div class="space-y-3">
+                        <label class="block text-sm sm:text-base font-semibold text-pastel-textDark">
+                            2. Giới tính của bạn là gì?
+                        </label>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <label class="cursor-pointer">
+                                <input type="radio" name="q2_gender" value="Nam" class="sr-only custom-radio" required>
+                                <div class="p-3.5 rounded-xl border border-pastel-creamBorder bg-pastel-creamBg hover:bg-pastel-blueSoft/50 transition-all flex items-center gap-3">
+                                    <div class="radio-dot w-4 h-4 rounded-full border-2 border-pastel-textMuted shrink-0"></div>
+                                    <span class="text-sm font-medium">Nam</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="q2_gender" value="Nữ" class="sr-only custom-radio" required>
+                                <div class="p-3.5 rounded-xl border border-pastel-creamBorder bg-pastel-creamBg hover:bg-pastel-blueSoft/50 transition-all flex items-center gap-3">
+                                    <div class="radio-dot w-4 h-4 rounded-full border-2 border-pastel-textMuted shrink-0"></div>
+                                    <span class="text-sm font-medium">Nữ</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="q2_gender" value="Khác" class="sr-only custom-radio" required>
+                                <div class="p-3.5 rounded-xl border border-pastel-creamBorder bg-pastel-creamBg hover:bg-pastel-blueSoft/50 transition-all flex items-center gap-3">
+                                    <div class="radio-dot w-4 h-4 rounded-full border-2 border-pastel-textMuted shrink-0"></div>
+                                    <span class="text-sm font-medium">Khác</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Question 3 -->
+                    <div class="space-y-3">
+                        <label class="block text-sm sm:text-base font-semibold text-pastel-textDark">
+                            3. Trong vòng 1 tháng qua, mức độ bạn tìm kiếm thông tin sức khỏe hoặc triệu chứng bệnh trên mạng là bao nhiêu?
+                        </label>
+                        <div class="grid grid-cols-1 gap-3">
+                            <label class="cursor-pointer">
+                                <input type="radio" name="q3_frequency" value="Rất hiếm khi (Hầu như không tra, trừ khi bị nặng)" class="sr-only custom-radio" required>
+                                <div class="p-3.5 rounded-xl border border-pastel-creamBorder bg-pastel-creamBg hover:bg-pastel-blueSoft/50 transition-all flex items-center gap-3">
+                                    <div class="radio-dot w-4 h-4 rounded-full border-2 border-pastel-textMuted shrink-0"></div>
+                                    <span class="text-sm font-medium">Rất hiếm khi (Hầu như không tra, trừ khi bị nặng)</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="q3_frequency" value="Hiếm khi (1–2 lần/tháng)" class="sr-only custom-radio">
+                                <div class="p-3.5 rounded-xl border border-pastel-creamBorder bg-pastel-creamBg hover:bg-pastel-blueSoft/50 transition-all flex items-center gap-3">
+                                    <div class="radio-dot w-4 h-4 rounded-full border-2 border-pastel-textMuted shrink-0"></div>
+                                    <span class="text-sm font-medium">Hiếm khi (1–2 lần/tháng)</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="q3_frequency" value="Thỉnh thoảng (3–5 lần/tháng)" class="sr-only custom-radio">
+                                <div class="p-3.5 rounded-xl border border-pastel-creamBorder bg-pastel-creamBg hover:bg-pastel-blueSoft/50 transition-all flex items-center gap-3">
+                                    <div class="radio-dot w-4 h-4 rounded-full border-2 border-pastel-textMuted shrink-0"></div>
+                                    <span class="text-sm font-medium">Thỉnh thoảng (3–5 lần/tháng)</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="q3_frequency" value="Thường xuyên (1–2 lần/tuần)" class="sr-only custom-radio">
+                                <div class="p-3.5 rounded-xl border border-pastel-creamBorder bg-pastel-creamBg hover:bg-pastel-blueSoft/50 transition-all flex items-center gap-3">
+                                    <div class="radio-dot w-4 h-4 rounded-full border-2 border-pastel-textMuted shrink-0"></div>
+                                    <span class="text-sm font-medium">Thường xuyên (1–2 lần/tuần)</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="q3_frequency" value="Cực kỳ thường xuyên (Hầu như tuần nào cũng tra / Cứ thấy lạ là tra)" class="sr-only custom-radio">
+                                <div class="p-3.5 rounded-xl border border-pastel-creamBorder bg-pastel-creamBg hover:bg-pastel-blueSoft/50 transition-all flex items-center gap-3">
+                                    <div class="radio-dot w-4 h-4 rounded-full border-2 border-pastel-textMuted shrink-0"></div>
+                                    <span class="text-sm font-medium">Cực kỳ thường xuyên (Hầu như tuần nào cũng tra / Cứ thấy lạ là tra)</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Question 4 -->
+                    <div class="space-y-3">
+                        <label class="block text-sm sm:text-base font-semibold text-pastel-textDark">
+                            4. Khi cơ thể xuất hiện một triệu chứng lạ (ví dụ: đau đầu kéo dài, nổi mụn bất thường, đau bụng...), đâu là nơi bạn tìm đến ĐẦU TIÊN?
+                        </label>
+                        <div class="grid grid-cols-1 gap-3">
+                            <label class="cursor-pointer">
+                                <input type="radio" name="q4_where" value="Tìm kiếm trên Google" class="sr-only custom-radio" required>
+                                <div class="p-3.5 rounded-xl border border-pastel-creamBorder bg-pastel-creamBg hover:bg-pastel-blueSoft/50 transition-all flex items-center gap-3">
+                                    <div class="radio-dot w-4 h-4 rounded-full border-2 border-pastel-textMuted shrink-0"></div>
+                                    <span class="text-sm font-medium">Tìm kiếm trên Google</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="q4_where" value="Lướt video trên TikTok / YouTube / Reels" class="sr-only custom-radio">
+                                <div class="p-3.5 rounded-xl border border-pastel-creamBorder bg-pastel-creamBg hover:bg-pastel-blueSoft/50 transition-all flex items-center gap-3">
+                                    <div class="radio-dot w-4 h-4 rounded-full border-2 border-pastel-textMuted shrink-0"></div>
+                                    <span class="text-sm font-medium">Lướt video trên TikTok / YouTube / Reels</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="q4_where" value="Hỏi các công cụ AI (Chat GPT, Gemini, Claude...)" class="sr-only custom-radio">
+                                <div class="p-3.5 rounded-xl border border-pastel-creamBorder bg-pastel-creamBg hover:bg-pastel-blueSoft/50 transition-all flex items-center gap-3">
+                                    <div class="radio-dot w-4 h-4 rounded-full border-2 border-pastel-textMuted shrink-0"></div>
+                                    <span class="text-sm font-medium">Hỏi các công cụ AI (Chat GPT, Gemini, Claude...)</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="q4_where" value="Hỏi thẳng cha mẹ / người thân trong gia đình" class="sr-only custom-radio">
+                                <div class="p-3.5 rounded-xl border border-pastel-creamBorder bg-pastel-creamBg hover:bg-pastel-blueSoft/50 transition-all flex items-center gap-3">
+                                    <div class="radio-dot w-4 h-4 rounded-full border-2 border-pastel-textMuted shrink-0"></div>
+                                    <span class="text-sm font-medium">Hỏi thẳng cha mẹ / người thân trong gia đình</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="q4_where" value="Hỏi bạn bè / người quen cùng lứa tuổi" class="sr-only custom-radio">
+                                <div class="p-3.5 rounded-xl border border-pastel-creamBorder bg-pastel-creamBg hover:bg-pastel-blueSoft/50 transition-all flex items-center gap-3">
+                                    <div class="radio-dot w-4 h-4 rounded-full border-2 border-pastel-textMuted shrink-0"></div>
+                                    <span class="text-sm font-medium">Hỏi bạn bè / người quen cùng lứa tuổi</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!--Phần II: Mức độ lo âu hiện tại-->
+                    <h3 class="block text-base sm:text-xl font-bold text-pastel-textDark">PHẦN II: MỨC ĐỘ LO ÂU HIỆN TẠI</h3>
+                    <div class="stais-questions-list border border-pastel-creamBorder rounded-2xl p-4 bg-pastel-creamCard shadow-sm"></div>
+
+                    <!-- Action Button -->
+                    <div class="flex flex-row items-center justify-between">
+                        <div class="pt-4 flex justify-start">
+                            <button type="button" onclick="goToStep(1)" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-pastel-bluePrimary hover:bg-pastel-blueDark text-white font-semibold text-sm transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 group">
+                                <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i>
+                                <span>QUAY LẠI</span>
+                            </button>
+                        </div>
+                        <div class="pt-4 flex justify-end">
+                            <button type="submit" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-pastel-bluePrimary hover:bg-pastel-blueDark text-white font-semibold text-sm transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 group">
+                                <span>TIẾP TỤC</span>
+                                <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+            <!-- ==========================================
+                 PAGE 3: KỊCH BẢN + HƯỚNG DẪN THỰC HIỆN
+                 ========================================== -->
+            <section id="step3" class="hidden fade-in space-y-4">    
+                <!-- EXPERIMENT SCENARIO BOX -->
+                <div class="bg-linear-to-r from-pastel-blueSoft via-pastel-creamCard to-pastel-blueSoft border border-pastel-blueMedium/60 rounded-2xl p-4 sm:p-5 shadow-sm">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div class="space-y-1.5 flex-1">
+                            <div class="flex items-center gap-2">
+                                <span class="bg-pastel-blueDark text-white text-base sm:text-lg font-bold px-2.5 py-0.5 rounded-md uppercase tracking-wider">
+                                    HÃY HÌNH DUNG BẠN ĐANG Ở TRONG TÌNH HUỐNG SAU
+                                </span>
+                            </div>
+                            <div class="space-y-3 text-base sm:text-lg font-medium text-pastel-textDark leading-relaxed">
+                                <p>
+                                    Bạn đang căng thẳng ôn thi, thức khuya và ít uống nước. Gần đây, bạn bắt đầu xuất hiện các triệu chứng:
+                                </p>
+                            
+                                <ul class="space-y-1 pl-2">
+                                    <li class="flex items-start gap-2">
+                                        <span class="select-none">-</span>
+                                        <span>Sốt nhẹ (~38°C), rét run từng đợt</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="select-none">-</span>
+                                        <span>Đau đầu dữ dội</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="select-none">-</span>
+                                        <span>Uống Paracetamol có đỡ nhưng khi hết thuốc thì sốt lại.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="select-none">-</span>
+                                        <span>Tim đập nhanh bất thường</span>
+                                    </li>
+                                </ul>
+                                <p class="pt-2">
+                                    Bạn bắt đầu cảm thấy lo lắng và quyết định lên web tra cứu triệu chứng này để xem mình bị làm sao.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fade-in bg-pastel-creamCard border border-pastel-creamBorder rounded-2xl p-5 sm:p-8 shadow-sm">
+                    <div class="space-y-6">
+                        <!--Nhiệm vụ của bạn-->
+                        <h4 class="block text-base sm:text-lg font-bold text-pastel-textDark">NHIỆM VỤ CỦA BẠN</h4>
+                        <ul class="list-disc space-y-2 pl-5 block text-sm sm:text-base">
+                            <li>
+                                Bước 1: Bấm vào link truy cập Trang web đầu tiên <i class="fa-solid fa-arrow-right"></i> Đọc kết quả tra cứu <i class="fa-solid fa-arrow-right"></i> Quay lại form làm Bài Test 1.
+                            </li>
+                            <li>
+                                Bước 2: Sau khi hoàn thành Bài Test, hãy thả lỏng mắt và đầu óc trong 30 giây để đưa tâm trạng về trạng thái bình thường.
+                            </li>
+                            <li>
+                                Bước 3: Bấm vào link truy cập Trang web thứ hai <i class="fa-solid fa-arrow-right"></i> Đọc kết quả tra cứu <i class="fa-solid fa-arrow-right"></i> Quay lại form làm Bài Test 2.
+                            </li>
+                            <li>
+                                Bước 4: Trả lời câu hỏi so sánh A/B ở cuối bài để chỉ ra trang web bạn ưu tiên hơn.
+                            </li>
+                        </ul>
+                        <!--Hướng dẫn thao tác-->
+                        <h4 class="block text-base sm:text-lg font-bold text-pastel-textDark">Hướng dẫn thao tác</h4>
+                        <ul class="list-disc space-y-2 pl-5 block text-sm sm:text-base">
+                            <li>
+                                Các liên kết web sẽ mở ra ở <strong>Tab mới</strong> (Cửa sổ mới). Sau khi xem xong web, bạn chỉ cần chuyển lại Tab khảo sát này để làm tiếp.
+                            </li>
+                            <li>
+                                Hãy trải nghiệm tự nhiên như cách bạn vẫn thường tra cứu Google hàng ngày, không cần vội vã.
+                            </li>
+                        </ul>
+                        <!--Minh họa-->
+                        <h4 class="block text-base sm:text-lg font-bold text-pastel-textDark">Minh họa</h4>
+                        <div class="relative flex justify-center items-center w-full max-w-lg sm:max-w-xl mx-auto group">
+                            <!-- Nút sang trái (<) -->
+                            <button 
+                                onclick="prevSlide()" 
+                                class="absolute left-2 z-10 bg-black/40 hover:bg-black/70 text-white w-9 h-9 flex items-center justify-center rounded-full transition-all focus:outline-none">
+                                &#10094;
+                            </button>
+
+                            <!-- Khung hiển thị ảnh -->
+                            <div class="w-full overflow-hidden rounded-xl shadow-md border border-pastel-creamBorder">
+                                <img 
+                                    id="sliderImage" 
+                                    src="../asset/hướng-dẫn-thao-tác/Máy tính.jpg" 
+                                    alt="Minh họa thao tác" 
+                                    class="w-full h-auto object-cover transition-opacity duration-300">
+                            </div>
+
+                            <!-- Nút sang phải (>) -->
+                            <button 
+                                onclick="nextSlide()" 
+                                class="absolute right-2 z-10 bg-black/40 hover:bg-black/70 text-white w-9 h-9 flex items-center justify-center rounded-full transition-all focus:outline-none">
+                                &#10095;
+                            </button>
+                        </div>
+                        <label class="flex items-start gap-2.5 font-bold text-base sm:text-lg leading-snug text-pastel-textDark cursor-pointer max-w-2xl select-none mt-4">
+                            <input type="checkbox" required class="w-4 h-4 mt-1 cursor-pointer accent-pastel-blue" />
+                            <span>Tôi đã hiểu kịch bản và SẴN SÀNG BẮT ĐẦU</span>
+                        </label>
+                        <!-- Action Button -->
+                        <div class="flex flex-row items-center justify-between">
+                            <div class="pt-4 flex justify-start">
+                                <button type="button" onclick="goToStep(2)" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-pastel-bluePrimary hover:bg-pastel-blueDark text-white font-semibold text-sm transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 group">
+                                    <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i>
+                                    <span>QUAY LẠI</span>
+                                </button>
+                            </div>
+                            <div class="pt-4 flex justify-end">
+                                <button type="button" onclick="goToStep(4)" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-pastel-bluePrimary hover:bg-pastel-blueDark text-white font-semibold text-sm transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 group">
+                                    <span>TIẾP TỤC</span>
+                                    <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </section>
+
+            <!-- ==========================================
+                 PAGE 4: THỬ NGHIỆM WEB A + ĐÁNH GIÁ
+                 ========================================== -->
+            <section id="step4" class="hidden fade-in space-y-4">
+                <div class="each-web-form space-y-4"></div>
+                <!-- Action Button -->
+                <div class="flex flex-row items-center justify-between">
+                    <div class="pt-4 flex justify-start">
+                        <button type="button" onclick="goToStep(3)" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-pastel-bluePrimary hover:bg-pastel-blueDark text-white font-semibold text-sm transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 group">
+                            <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i>
+                            <span>QUAY LẠI</span>
+                        </button>
+                    </div>
+                    <div class="pt-4 flex justify-end">
+                        <button type="button" onclick="goToStep(5)" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-pastel-bluePrimary hover:bg-pastel-blueDark text-white font-semibold text-sm transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 group">
+                            <span>TIẾP TỤC</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 PAGE 5: NGHỈ GIẢI LAO
+                 ========================================== -->
+            <section id="step5" class="hidden fade-in bg-pastel-creamCard border border-pastel-creamBorder rounded-2xl p-5 sm:p-8 shadow-sm">
+                
+                <div class="border-b border-pastel-creamBorder pb-4 mb-6">
+                    <h2 class="text-xl sm:text-2xl font-bold text-pastel-textDark">ĐÃ HOÀN THÀNH 50% CHẶNG ĐƯỜNG!</h2>
+                    <p class="text-sm text-pastel-textMuted mt-1">
+                        Cảm ơn bạn đã hoàn thành phần đánh giá cho Trang web thứ nhất.
+                    </p>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="space-y-2">
+                        <span class="block text-base sm:text-lg font-semibold text-pastel-textDark">
+                            Trước khi bước sang trải nghiệm trang web thứ hai, hãy cùng thả lỏng đầu óc để loại bỏ hoàn toàn cảm xúc từ bài test trước nhé:
+                        </span>
+                        <ul class="space-y-2 text-sm md:text-base">
+                            <li><strong>Bước 1:</strong> Dành 15-30 giây xem đoạn clip/ảnh nhẹ nhàng dưới đây.</li>
+                            <li><strong>Bước 2:</strong> Hít một hơi thật sâu, vươn vai nhẹ và chớp mắt 3–4 lần.</li>
+                        </ul>
+                    </div>  
+                    <!--Video-->
+                    <div class="flex justify-center">
+                        <video 
+                            controls 
+                            playsinline
+                            class="w-full max-w-lg aspect-video rounded-xl shadow-md border border-pastel-creamBorder bg-black"
+                        >
+                            <source src="../asset/break_Video.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <!--Confirm-->
+                    <div class="space-y-2 border-t-4 border-pastel-creamBorder pt-4 mt-6">
+                        <span class="block text-lg sm:text-xl font-semibold text-pastel-textDark">
+                            <i class="fa fa-star" aria-hidden="true"></i>  BẠN ĐÃ SẴN SÀNG CHO TRANG WEB THỨ HAI CHƯA?
+                        </span>
+                        <label class="flex items-start gap-2.5 text-base leading-snug text-pastel-textDark cursor-pointer max-w-2xl select-none mt-4">
+                            <input type="checkbox" class="w-4 h-4 mt-1 cursor-pointer accent-pastel-blue" />
+                            <span>
+                                Mình đã sẵn sàng!
+                            </span>
+                        </label>
+                    </div>  
+                    <!-- Action Button -->
+                    <div class="flex flex-row items-center justify-between">
+                        <div class="pt-4 flex justify-start">
+                            <button type="button" onclick="goToStep(4)" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-pastel-bluePrimary hover:bg-pastel-blueDark text-white font-semibold text-sm transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 group">
+                                <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i>
+                                <span>QUAY LẠI</span>
+                            </button>
+                        </div>
+                        <div class="pt-4 flex justify-end">
+                            <button type="button" onclick="goToStep(6)" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-pastel-bluePrimary hover:bg-pastel-blueDark text-white font-semibold text-sm transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 group">
+                                <span>TIẾP TỤC</span>
+                                <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 PAGE 6: THỬ NGHIỆM WEB B + ĐÁNH GIÁ
+                 ========================================== -->
+            <section id="step6" class="hidden fade-in space-y-4">
+                <div class="each-web-form space-y-4"></div>
+                <!-- Action Button -->
+                <div class="flex flex-row items-center justify-between">
+                    <div class="pt-4 flex justify-start">
+                        <button type="button" onclick="goToStep(5)" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-pastel-bluePrimary hover:bg-pastel-blueDark text-white font-semibold text-sm transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 group">
+                            <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i>
+                            <span>QUAY LẠI</span>
+                        </button>
+                    </div>
+                    <div class="pt-4 flex justify-end">
+                        <button type="button" onclick="goToStep(7)" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-pastel-bluePrimary hover:bg-pastel-blueDark text-white font-semibold text-sm transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 group">
+                            <span>TIẾP TỤC</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 PAGE 7: SO SÁNH GIỮA 2 WEB
+                 ========================================== -->
+            <section id="step7" class="hidden fade-in bg-pastel-creamCard border border-pastel-creamBorder rounded-2xl p-5 sm:p-8 shadow-sm">
+                
+                <div class="border-b border-pastel-creamBorder pb-4 mb-6">
+                    <h2 class="text-xl sm:text-2xl font-bold text-pastel-textDark">BẠN ĐÃ HOÀN THÀNH 90% CHẶNG ĐƯỜNG!</h2>
+                    <p class="text-base text-pastel-textMuted mt-1">
+                        Cảm ơn bạn vì đã dành thời gian đọc và đánh giá qua cả hai trang web.
+                    </p>
+                    <p class="text-base text-pastel-textMuted mt-1">
+                        Sau khi đã trực tiếp trải nghiệm cả hai giao diện, hãy dành ít giây chia sẻ cho chúng mình biết trang web nào thực sự mang lại cho bạn cảm giác an tâm và dễ chịu hơn qua vài câu hỏi tổng kết bên dưới nhé!
+                    </p>
+                </div>
+
+                <div class="space-y-6">
+                    <!--Đối tượng đánh giá-->
+                    <h3 class="block text-base sm:text-lg font-bold text-pastel-textDark">ĐỐI TƯỢNG ĐÁNH GIÁ</h3>
+                    <div class="flex flex-col sm:flex-row items-center justify-between gap-6 border-4 border-pastel-creamBorder rounded-xl p-4">
+                        <!-- Web A -->
+                        <div class="flex flex-col items-center w-full sm:w-1/2">
+                            <img src="../asset/vinmec.png" alt="Giao diện Web A (Vinmec)" class="w-full max-w-sm rounded-lg object-cover">
+                            <span class="mt-2 text-lg sm:text-xl font-semibold text-pastel-textDark text-center">Web A</span>
+                        </div>
+
+                        <!-- Web B -->
+                        <div class="flex flex-col items-center w-full sm:w-1/2">
+                            <img src="../asset/our_web.png" alt="Giao diện Web B" class="w-full max-w-sm rounded-lg object-cover">
+                            <span class="mt-2 text-lg sm:text-xl font-semibold text-pastel-textDark text-center">Web B</span>
+                        </div>
+                    </div>
+
+                    <!--Phần 1: so sánh trực tiếp-->
+                    <h3 class="block text-base sm:text-lg font-bold text-pastel-textDark">PHẦN I: SO SÁNH TRỰC TIẾP</h3>
+                    <div class="compare-questions-list space-y-2"></div>
+
+
+                    <!--Phần 2: chỉ số giới thiệu -->
+                    <h3 class="block text-base sm:text-lg font-bold text-pastel-textDark">PHẦN II: CHỈ SỐ GIỚI THIỆU</h3>
+                    <!--Câu 1-->
+                    <div class="space-y-3 p-4 bg-white rounded-2xl border border-pastel-creamBorder">
+                        <!-- Tiêu đề câu hỏi -->
+                        <div>
+                            <h3 class="font-semibold text-sm sm:text-base text-pastel-textDark">
+                            1. Nếu có bạn bè/người thân đang lo lắng về triệu chứng sức khỏe, trên thang từ 0 đến 10, khả năng bạn giới thiệu Web A cho họ là bao nhiêu? 
+                            </h3>
+                        </div>
+
+                        <!-- Khung hiển thị con số đang chọn -->
+                        <div class="flex items-center justify-between pt-2">
+                            <span class="text-xs font-medium text-pastel-textMuted">Mức độ chọn:</span>
+                            <span class="text-lg font-bold text-pastel-bluePrimary bg-pastel-blueSoft px-3 py-1 rounded-full border border-pastel-blueMedium">
+                            <span id="q1_val">5</span> / 10
+                            </span>
+                        </div>
+
+                        <!-- Thanh trượt Slider -->
+                        <div class="space-y-2">
+                            <input 
+                            type="range" 
+                            name="q1_anxiety_level" 
+                            min="0" 
+                            max="10" 
+                            value="5" 
+                            step="1"
+                            class="w-full h-2 bg-pastel-creamDark rounded-lg appearance-none cursor-pointer accent-pastel-bluePrimary"
+                            oninput="document.getElementById('q1_val').innerText = this.value"
+                            required 
+                            />
+
+                            <!-- Nhãn 2 đầu 0 và 10 -->
+                            <div class="flex justify-between text-[11px] sm:text-xs text-pastel-textMuted font-medium pt-1">
+                                <span class="w-1/2 text-left pr-2">0: Hoàn toàn bình tĩnh / không lo lắng</span>
+                                <span class="w-1/2 text-right pl-2">10: Cực kỳ hoảng sợ / căng thẳng tột độ</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Câu 2-->
+                    <div class="space-y-3 p-4 bg-white rounded-2xl border border-pastel-creamBorder">
+                        <!-- Tiêu đề câu hỏi -->
+                        <div>
+                            <h3 class="font-semibold text-sm sm:text-base text-pastel-textDark">
+                            2. Nếu có bạn bè/người thân đang lo lắng về triệu chứng sức khỏe, trên thang từ 0 đến 10, khả năng bạn giới thiệu Web B cho họ là bao nhiêu? 
+                            </h3>
+                        </div>
+
+                        <!-- Khung hiển thị con số đang chọn -->
+                        <div class="flex items-center justify-between pt-2">
+                            <span class="text-xs font-medium text-pastel-textMuted">Mức độ chọn:</span>
+                            <span class="text-lg font-bold text-pastel-bluePrimary bg-pastel-blueSoft px-3 py-1 rounded-full border border-pastel-blueMedium">
+                            <span id="q2_val">5</span> / 10
+                            </span>
+                        </div>
+
+                        <!-- Thanh trượt Slider -->
+                        <div class="space-y-2">
+                            <input 
+                            type="range" 
+                            name="q2_anxiety_level" 
+                            min="0" 
+                            max="10" 
+                            value="5" 
+                            step="1"
+                            class="w-full h-2 bg-pastel-creamDark rounded-lg appearance-none cursor-pointer accent-pastel-bluePrimary"
+                            oninput="document.getElementById('q2_val').innerText = this.value"
+                            required 
+                            />
+
+                            <!-- Nhãn 2 đầu 0 và 10 -->
+                            <div class="flex justify-between text-[11px] sm:text-xs text-pastel-textMuted font-medium pt-1">
+                                <span class="w-1/2 text-left pr-2">0: Hoàn toàn bình tĩnh / không lo lắng</span>
+                                <span class="w-1/2 text-right pl-2">10: Cực kỳ hoảng sợ / căng thẳng tột độ</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Phần 3: dự định hành vi-->
+                    <h3 class="block text-base sm:text-lg font-bold text-pastel-textDark">PHẦN III: DỰ ĐỊNH HÀNH VI</h3>
+                    <!--Câu 1-->
+                    <div class="space-y-3">
+                        <label class="block text-sm sm:text-base font-semibold text-pastel-textDark">
+                            1. Giả sử đây là triệu chứng thực tế bạn đang gặp phải, sau khi đọc xong thông tin trên trang web A, hành động tiếp theo của bạn là gì? (Chọn 1 đáp án đúng nhất)
+                        </label>
+                        <div class="grid grid-cols-1 gap-3">
+                            <label class="cursor-pointer">
+                                <input type="radio" name="q3_frequency" value="Tự nghỉ ngơi và theo dõi thêm cơ thể trong 1–2 ngày tới." class="sr-only custom-radio" required>
+                                <div class="p-3.5 rounded-xl border border-pastel-creamBorder bg-pastel-creamBg hover:bg-pastel-blueSoft/50 transition-all flex items-center gap-3">
+                                    <div class="radio-dot w-4 h-4 rounded-full border-2 border-pastel-textMuted shrink-0"></div>
+                                    <span class="text-sm font-medium">Tự nghỉ ngơi và theo dõi thêm cơ thể trong 1–2 ngày tới.</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="q3_frequency" value="Báo với gia đình/người thân và tham khảo ý kiến của họ." class="sr-only custom-radio">
+                                <div class="p-3.5 rounded-xl border border-pastel-creamBorder bg-pastel-creamBg hover:bg-pastel-blueSoft/50 transition-all flex items-center gap-3">
+                                    <div class="radio-dot w-4 h-4 rounded-full border-2 border-pastel-textMuted shrink-0"></div>
+                                    <span class="text-sm font-medium">Báo với gia đình/người thân và tham khảo ý kiến của họ.</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="q3_frequency" value="Đặt lịch hẹn đi khám bác sĩ/cơ sở y tế để kiểm tra cho an tâm." class="sr-only custom-radio">
+                                <div class="p-3.5 rounded-xl border border-pastel-creamBorder bg-pastel-creamBg hover:bg-pastel-blueSoft/50 transition-all flex items-center gap-3">
+                                    <div class="radio-dot w-4 h-4 rounded-full border-2 border-pastel-textMuted shrink-0"></div>
+                                    <span class="text-sm font-medium">Đặt lịch hẹn đi khám bác sĩ/cơ sở y tế để kiểm tra cho an tâm.</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="q3_frequency" value="Tiếp tục lên Google / TikTok tra cứu thêm về căn bệnh này." class="sr-only custom-radio">
+                                <div class="p-3.5 rounded-xl border border-pastel-creamBorder bg-pastel-creamBg hover:bg-pastel-blueSoft/50 transition-all flex items-center gap-3">
+                                    <div class="radio-dot w-4 h-4 rounded-full border-2 border-pastel-textMuted shrink-0"></div>
+                                    <span class="text-sm font-medium">Tiếp tục lên Google / TikTok tra cứu thêm về căn bệnh này.</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="q3_frequency" value="Tự tìm mua thuốc uống ngay lập tức." class="sr-only custom-radio">
+                                <div class="p-3.5 rounded-xl border border-pastel-creamBorder bg-pastel-creamBg hover:bg-pastel-blueSoft/50 transition-all flex items-center gap-3">
+                                    <div class="radio-dot w-4 h-4 rounded-full border-2 border-pastel-textMuted shrink-0"></div>
+                                    <span class="text-sm font-medium">Tự tìm mua thuốc uống ngay lập tức.</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="q3_frequency" value="Cảm thấy hoang mang và không biết nên làm gì tiếp theo." class="sr-only custom-radio">
+                                <div class="p-3.5 rounded-xl border border-pastel-creamBorder bg-pastel-creamBg hover:bg-pastel-blueSoft/50 transition-all flex items-center gap-3">
+                                    <div class="radio-dot w-4 h-4 rounded-full border-2 border-pastel-textMuted shrink-0"></div>
+                                    <span class="text-sm font-medium">Cảm thấy hoang mang và không biết nên làm gì tiếp theo.</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    <!--Câu 2-->
+                    <div class="space-y-3">
+                        <label class="block text-sm sm:text-base font-semibold text-pastel-textDark">
+                            2. Giả sử đây là triệu chứng thực tế bạn đang gặp phải, sau khi đọc xong thông tin trên trang web B, hành động tiếp theo của bạn là gì? (Chọn 1 đáp án đúng nhất)
+                        </label>
+                        <div class="grid grid-cols-1 gap-3">
+                            <label class="cursor-pointer">
+                                <input type="radio" name="q3_frequency" value="Tự nghỉ ngơi và theo dõi thêm cơ thể trong 1–2 ngày tới." class="sr-only custom-radio" required>
+                                <div class="p-3.5 rounded-xl border border-pastel-creamBorder bg-pastel-creamBg hover:bg-pastel-blueSoft/50 transition-all flex items-center gap-3">
+                                    <div class="radio-dot w-4 h-4 rounded-full border-2 border-pastel-textMuted shrink-0"></div>
+                                    <span class="text-sm font-medium">Tự nghỉ ngơi và theo dõi thêm cơ thể trong 1–2 ngày tới.</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="q3_frequency" value="Báo với gia đình/người thân và tham khảo ý kiến của họ." class="sr-only custom-radio">
+                                <div class="p-3.5 rounded-xl border border-pastel-creamBorder bg-pastel-creamBg hover:bg-pastel-blueSoft/50 transition-all flex items-center gap-3">
+                                    <div class="radio-dot w-4 h-4 rounded-full border-2 border-pastel-textMuted shrink-0"></div>
+                                    <span class="text-sm font-medium">Báo với gia đình/người thân và tham khảo ý kiến của họ.</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="q3_frequency" value="Đặt lịch hẹn đi khám bác sĩ/cơ sở y tế để kiểm tra cho an tâm." class="sr-only custom-radio">
+                                <div class="p-3.5 rounded-xl border border-pastel-creamBorder bg-pastel-creamBg hover:bg-pastel-blueSoft/50 transition-all flex items-center gap-3">
+                                    <div class="radio-dot w-4 h-4 rounded-full border-2 border-pastel-textMuted shrink-0"></div>
+                                    <span class="text-sm font-medium">Đặt lịch hẹn đi khám bác sĩ/cơ sở y tế để kiểm tra cho an tâm.</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="q3_frequency" value="Tiếp tục lên Google / TikTok tra cứu thêm về căn bệnh này." class="sr-only custom-radio">
+                                <div class="p-3.5 rounded-xl border border-pastel-creamBorder bg-pastel-creamBg hover:bg-pastel-blueSoft/50 transition-all flex items-center gap-3">
+                                    <div class="radio-dot w-4 h-4 rounded-full border-2 border-pastel-textMuted shrink-0"></div>
+                                    <span class="text-sm font-medium">Tiếp tục lên Google / TikTok tra cứu thêm về căn bệnh này.</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="q3_frequency" value="Tự tìm mua thuốc uống ngay lập tức." class="sr-only custom-radio">
+                                <div class="p-3.5 rounded-xl border border-pastel-creamBorder bg-pastel-creamBg hover:bg-pastel-blueSoft/50 transition-all flex items-center gap-3">
+                                    <div class="radio-dot w-4 h-4 rounded-full border-2 border-pastel-textMuted shrink-0"></div>
+                                    <span class="text-sm font-medium">Tự tìm mua thuốc uống ngay lập tức.</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="q3_frequency" value="Cảm thấy hoang mang và không biết nên làm gì tiếp theo." class="sr-only custom-radio">
+                                <div class="p-3.5 rounded-xl border border-pastel-creamBorder bg-pastel-creamBg hover:bg-pastel-blueSoft/50 transition-all flex items-center gap-3">
+                                    <div class="radio-dot w-4 h-4 rounded-full border-2 border-pastel-textMuted shrink-0"></div>
+                                    <span class="text-sm font-medium">Cảm thấy hoang mang và không biết nên làm gì tiếp theo.</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <h3 class="block text-base sm:text-lg font-bold text-pastel-textDark">Hiện tại, hình thức tham gia bài test của bạn là:</h3>
+                    <div class="grid grid-cols-1 gap-2">
+                        <label class="cursor-pointer">
+                            <input type="radio" name="current_status" value="direct" class="sr-only custom-radio">
+                            <div class="flex flex-row items-center gap-3 p-3.5 rounded-xl border border-pastel-creamBorder bg-white">
+                                <div class="radio-dot w-4 h-4 rounded-full border-2 border-pastel-textMuted shrink-0"></div>
+                                <span class="text-base font-medium">Trực tiếp cùng đội ngũ dự án.</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="radio" name="current_status" value="online" class="sr-only custom-radio">
+                            <div class="flex flex-row items-center gap-3 p-3.5 rounded-xl border border-pastel-creamBorder bg-white">
+                                <div class="radio-dot w-4 h-4 rounded-full border-2 border-pastel-textMuted shrink-0"></div>
+                                <span class="text-base font-medium">Tự thực hiện Online</span>
+                            </div>
+                        </label>
+                    </div>
+
+                     
+                    <!-- Action Button -->
+                    <div class="flex flex-row items-center justify-between">
+                        <div class="pt-4 flex justify-start">
+                            <button type="button" onclick="goToStep(6)" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-pastel-bluePrimary hover:bg-pastel-blueDark text-white font-semibold text-sm transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 group">
+                                <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i>
+                                <span>QUAY LẠI</span>
+                            </button>
+                        </div>
+                        <div class="pt-4 flex justify-end">
+                            <button  type="button" onclick="goToStep(8)" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-pastel-bluePrimary hover:bg-pastel-blueDark text-white font-semibold text-sm transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 group">
+                                <span>TIẾP TỤC</span>
+                                <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 PAGE 8A: Làm trực tiếp
+                 ========================================== -->
+            <section id="step8A" class="hidden fade-in bg-pastel-creamCard border border-pastel-creamBorder rounded-2xl p-5 sm:p-8 shadow-sm">
+                
+                <div class="border-b border-pastel-creamBorder pb-4 mb-6">
+                    <h2 class="text-xl sm:text-2xl font-bold text-pastel-textDark">BẠN ĐÃ HOÀN THÀNH 100% PHẦN KHẢO SÁT!</h2>
+                    <p class="text-sm text-pastel-textMuted mt-1">
+                        Cảm ơn bạn rất nhiều vì đã kiên nhẫn trải nghiệm và đưa ra những đánh giá cực kỳ chi tiết từ đầu bài test đến giờ!<br>Bạn hãy giữ nguyên màn hình này và quay sang gõ nhẹ vai / báo cho đội ngũ dự án đang ngồi kế bên nhé! Chúng mình sẽ cùng trò chuyện trực tiếp 10–15 phút ngắn gọn để lắng nghe thêm những chia sẻ chân thật của bạn.<br>Trước khi bắt đầu, chúng mình xin phép thống nhất cùng bạn một vài chi tiết:
+                    </p>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="space-y-2">
+                        <span class="block text-sm sm:text-base font-semibold text-pastel-textDark">1. Xin phép Ghi âm / Ghi hình</span>
+                        <span class="block text-sm sm:text-base">
+                            Để không bỏ sót các ý kiến đắt giá của bạn và thuận tiện cho việc tổng hợp dữ liệu sau này, mình xin phép được ghi âm lại buổi trò chuyện hôm nay. File ghi âm này chỉ lưu trữ nội bộ trong nhóm nghiên cứu và sẽ được xóa sau khi hoàn thành dự án.
+                        </span>
+                    </div>
+                    <div class="space-y-2">
+                        <span class="block text-sm sm:text-base font-semibold text-pastel-textDark">2. Cam kết Môi trường An toàn & Không phán xét</span>
+                        <span class="block text-sm sm:text-base">
+                            Trong buổi phỏng vấn này, không có câu trả lời đúng hay sai, chỉ có suy nghĩ và cảm xúc thật của bạn. Bạn cứ thoải mái chia sẻ thật nhất những gì mình nghĩ. Nếu có câu hỏi nào bạn cảm thấy quá riêng tư hoặc không muốn trả lời, bạn hoàn toàn có thể bỏ qua.
+                        </span>
+                    </div>
+                    <div class="space-y-2">
+                        <span class="block text-sm sm:text-base font-semibold text-pastel-textDark">3. Xin phép Sử dụng Trích dẫn nguyên văn</span>
+                        <span class="block text-sm sm:text-base">
+                            Trong báo cáo hoặc slide thuyết trình dự án, chúng mình có thể sẽ sử dụng một số câu nói ấn tượng của bạn (ví dụ: 'Khi nhìn vào giao diện này em thấy...'). Tuy nhiên, tên của bạn sẽ được thay đổi thành mã định danh (ví dụ: Bạn A, 17 tuổi) để đảm bảo tính riêng tư tuyệt đối.
+                        </span>
+                    </div>
+                    <div class="space-y-2">
+                        <span class="block text-sm sm:text-base font-semibold text-pastel-textDark">4. Quyền Tạm dừng hoặc Điều chỉnh Tốc độ</span>
+                        <span class="block text-sm sm:text-base">
+                            Nếu trong quá trình trao đổi bạn cảm thấy mệt, mỏi mắt khi nhìn màn hình hoặc cần đi nước, hãy báo cho mình biết để chúng mình tạm dừng ít phút nhé.
+                        </span>
+                    </div>
+                    <label class="flex items-start gap-2.5 font-bold text-md leading-snug text-pastel-textDark cursor-pointer max-w-2xl select-none mt-4">
+                        <input type="checkbox" class="w-4 h-4 mt-1 cursor-pointer accent-pastel-blue" />
+                        <span>Tôi đã đọc và sẵn sàng trò chuyện cùng đội ngũ dự án</span>
+                    </label>
+                    <div class="pt-4 flex justify-end">
+                        <button type="submit" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-pastel-bluePrimary hover:bg-pastel-blueDark text-white font-semibold text-sm transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 group">
+                            <span>HOÀN THÀNH</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 PAGE 8B: Làm online
+                 ========================================== -->
+            <section id="step8B" class="hidden fade-in bg-pastel-creamCard border border-pastel-creamBorder rounded-2xl p-5 sm:p-8 shadow-sm">
+                
+                <div class="border-b border-pastel-creamBorder pb-4 mb-6">
+                    <h2 class="text-xl sm:text-2xl font-bold text-pastel-textDark">BẠN ĐÃ HOÀN THÀNH 100% PHẦN KHẢO SÁT!</h2>
+                    <p class="text-sm text-pastel-textMuted mt-1">
+                        Cảm ơn bạn rất nhiều vì đã kiên nhẫn trải nghiệm và đưa ra những đánh giá cực kỳ chi tiết từ đầu bài test đến giờ!
+                    </p>
+                </div>
+
+                <div class="space-y-4">
+                    <h3 class="text-xl sm:text-2xl font-bold text-pastel-textDark">🎁 THAM GIA PHỎNG VẤN SÂU (CÓ PHẦN QUÀ CẢM ƠN)</h3>
+                    <div class="space-y-2">
+                        <span class="block text-sm sm:text-base">
+                            Để hiểu rõ hơn về trải nghiệm của bạn, nhóm đang tìm kiếm một vài bạn tham gia buổi trò chuyện ngắn 15 phút qua Google Meet. <br> Nếu bạn sẵn sàng chia sẻ thêm, hãy để lại thông tin liên hệ bên dưới để nhóm gửi lời mời hẹn lịch nhé:
+                        </span>
+                        <label class="flex items-center gap-2.5 cursor-pointer select-none ">
+                            <input 
+                            type="radio" 
+                            name="interview_option" 
+                            value="ready_for_interview" 
+                            class="w-4 h-4 rounded border-gray-400 text-pastel-bluePrimary focus:ring-pastel-bluePrimary" 
+                            />
+                            <span class="text-pastel-textDark text-sm sm:text-base font-medium">Mình sẵn sàng tham gia phỏng vấn online!</span>
+                        </label>
+
+                        <label class="flex items-center gap-2.5 cursor-pointer select-none">
+                            <input 
+                            type="radio" 
+                            name="interview_option" 
+                            value="survey_only" 
+                            class="w-4 h-4 rounded border-gray-400 text-pastel-bluePrimary focus:ring-pastel-bluePrimary" 
+                            />
+                            <span class="text-pastel-textDark text-sm sm:text-base font-medium">Mình chỉ gửi câu trả lời khảo sát này thôi.</span>
+                        </label>
+                    </div>
+                    <div class="pt-4 flex justify-end">
+                        <button type="submit" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-pastel-bluePrimary hover:bg-pastel-blueDark text-white font-semibold text-sm transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 group">
+                            <span>HOÀN THÀNH</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="text-center text-xs text-pastel-textMuted py-2 border-t border-pastel-creamBorder/50">
+            Dữ liệu khảo sát được bảo mật tuyệt đối phục vụ cho công tác Nghiên cứu Khoa học.
+        </footer>
+    </div>
+
+    <!-- ==========================================
+         COMPLETION MODAL / DATA SUMMARY
+         ========================================== 
+    <div id="resultModal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-pastel-creamCard border border-pastel-creamBorder rounded-2xl max-w-lg w-full p-6 shadow-xl space-y-5 fade-in">
+            <div class="text-center space-y-2">
+                <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-2xl">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <h3 class="text-xl font-bold text-pastel-textDark">HOÀN THÀNH KHẢO SÁT!</h3>
+                <p class="text-xs text-pastel-textMuted">Cảm ơn bạn đã tham gia thực nghiệm NCKH của chúng tôi.</p>
+            </div>-->
+
+            <!-- Captured Data Display Block 
+            <div class="bg-pastel-creamBg p-4 rounded-xl border border-pastel-creamBorder space-y-2 text-xs font-mono text-pastel-textDark overflow-x-auto">
+                <div class="font-bold text-pastel-blueDark border-b border-pastel-creamBorder pb-1 mb-2">TỔNG HỢP DỮ LIỆU THỰC NGHIỆM:</div>
+                <div>• Tiến trình: <span class="text-emerald-600 font-bold">100%</span></div>
+                <div>• Thời gian đọc kịch bản: <span id="summaryTimer" class="font-bold">--</span></div>
+                <div>• Mức lo lắng ban đầu: <span id="summaryQ1" class="font-bold">--</span></div>
+                <div>• Lo sợ sức khỏe ban đầu: <span id="summaryQ2" class="font-bold">--</span></div>
+                <div>• Mức lo lắng sau tra cứu: <span id="summaryPostQ1" class="font-bold">--</span></div>
+                <div>• Đánh giá nguy cơ bệnh: <span id="summaryPostQ2" class="font-bold">--</span></div>
+                <div>• Đánh giá MAUQ Usability: <span id="summaryMAUQ" class="font-bold">--</span>/5</div>
+            </div>-->
+
+            <!-- Modal Action Buttons 
+            <div class="flex gap-3">
+                <button onclick="copyDataJSON()" class="flex-1 py-3 rounded-xl border border-pastel-blueMedium text-pastel-blueDark hover:bg-pastel-blueSoft font-semibold text-xs transition-all flex items-center justify-center gap-1.5">
+                    <i class="fa-regular fa-copy"></i>
+                    <span>Sao chép JSON</span>
+                </button>
+                <button onclick="resetSurvey()" class="flex-1 py-3 rounded-xl bg-pastel-bluePrimary hover:bg-pastel-blueDark text-white font-semibold text-xs transition-all shadow-sm">
+                    Thực hiện lại
+                </button>
+            </div>
+        </div>
+    </div>-->
+
+    <script src="../components/test.js"></script>
+</body>
+</html>

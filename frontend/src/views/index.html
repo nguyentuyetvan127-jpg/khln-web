@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Font chữ-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <title>Web Y Khoa</title>
+    <!-- Nhúng file CSS mà Tailwind biên dịch ra -->
+    <link href="../../../dist/output.css" rel="stylesheet">
+    <!--Icon-->
+    <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
+    <!--Hiệu ứng cuộn-->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+</head>
+
+<body class="bg-[#C4DDE9] h-screen relative">
+    <header>
+        <nav class="mx-10 relative z-50">
+            <div class="nav-links duration-500 lg:static absolute lg:min-h-fit min-h-[60vh] bottom-0 lg:translate-y-0 -translate-y-full lg:w-auto w-full flex items-center bg-white lg:bg-[#84C5EA] lg:pt-4">
+                <ul class="flex lg:flex-row flex-col gap-6 items-center w-full">
+                    <li>
+                        <a href="index.html" class="lg:text-[#56ADD7] text-white text-[25px] font-medium lg:bg-white bg-[#56ADD7] rounded-[99px] px-6">Trang chủ</a>
+                    </li>
+                    <li>
+                        <a href="about.html" class="lg:text-white text-[#56ADD7] text-[20px] font-medium hover:underline hover:underline-offset-8 decoration-[3px]">Giới thiệu</a>
+                    </li>
+                    <li>
+                        <a href="#" class="lg:text-white text-[#56ADD7] text-[20px] font-medium hover:underline hover:underline-offset-8 decoration-[3px]">Cách hoạt động</a>
+                    </li>
+                    <li>
+                        <a href="login.html" class="lg:text-white text-[#56ADD7] text-[20px] font-medium hover:underline hover:underline-offset-8 decoration-[3px]">Đăng nhập/Đăng ký</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="flex justify-end items-center">
+                <ion-icon name="menu-outline" onclick="onToggleMenu(this)" class="text-5xl text-white text-bold cursor-pointer lg:hidden"></ion-icon>
+            </div>
+        </nav>
+    </header> 
+    
+    <img class="absolute w-full top-0 right-0 bottom-0 h-screen object-cover" src="../asset/home-page.png">
+
+    <main>
+        <!--Khối chính chứa tiêu đề, nút Explore và hình ảnh-->
+        <div class="flex lg:flex-row flex-col lg:items-center items-start lg:justify-start justify-center h-screen lg:mx-20 mx-5 pb-30">
+            <!--Khối bên trái chứa tiêu đề và nút Explore-->
+            <div class="flex flex-col items-end justify-center gap-6">
+                <!--Khối tiêu đề-->
+                <div class="flex flex-col" data-aos="fade-right">
+                    <div class="flex lg:justify-end">
+                        <p class="text-white lg:text-[58px] text-[45px] font-semibold">"Hôm nay bạn</p>
+                    </div>
+                    
+                    <p class="text-white lg:text-[58px] text-[45px] font-semibold">cảm thấy thế nào?"</p>
+                </div>
+                <!--Khối nút Explore-->
+                <a href="personInfor.html" data-aos="fade-right">
+                    <button class="lg:text-[25px] text-[20px] text-[#253464] font-medium bg-[#C4DDE9] px-10 py-2 rounded-[99px] shadow-[0_12px_4px_0_#4D5F99] cursor-pointer transition-all
+  hover:translate-y-0.5">Khám phá ngay
+                    </button>
+                </a>
+            </div>
+            <!--Khối bên phải chứa hình ảnh-->
+            
+        </div>
+
+        <!--Khối màu xanh nhạt-->
+        <section class="flex lg:h-screen h-fit flex-col">
+            <div>
+                <!--Khối nội dung phụ-->
+                <div class="bg-[#C4DDE9] lg:pt-12 lg:pb-24 pt-6 pb-12 text-center">
+                    <div class="flex justify-center lg:text-[30px] text-[20px] font-medium text-[#253464]">
+                        <p>Một khoảng không yên bình để thấu hiểu từng tín hiệu từ cơ thể</p>
+                    </div>
+                </div>
+
+                <!--Khối tròn-->
+                <div class="flex justify-around items-end -mt-20 bg-[#C4DDE9] h-32 w-full">
+                    <div class="bg-[#EFEEE5] lg:h-24 lg:w-48 h-15 w-28 rounded-t-full relative">
+                        <ion-icon name="call" class="text-[#8FC4E4] lg:text-[70px] text-[50px] absolute lg:-bottom-1/5 lg:left-16 left-9 -bottom-1/4"></ion-icon>
+                    </div>
+                    <div class="bg-[#EFEEE5] lg:h-24 lg:w-48 h-15 w-28 rounded-t-full relative">
+                        <ion-icon name="mail" class="text-[#8FC4E4] lg:text-[70px] text-[50px] absolute lg:-bottom-1/4 lg:left-15.5 left-8.5 -bottom-1/4"></ion-icon>
+                    </div>
+                    <div class="bg-[#EFEEE5] lg:h-24 lg:w-48 h-15 w-28 rounded-t-full relative">
+                        <ion-icon name="document-text" class="text-[#8FC4E4] lg:text-[70px] text-[50px] absolute lg:-bottom-1/5 lg:left-16 left-9 -bottom-1/5"></ion-icon>
+                    </div>
+                </div>
+            </div>
+            <!--Khối thông tin liên lạc-->
+            <div class="flex flex-1 bg-[#EFEEE5]">
+                <div class="flex flex-row w-full justify-around items-center pt-5 pb-10">
+                    <!--Phone-->
+                    <div class="flex flex-1 flex-col items-center justify-center gap-2 lg:w-48 w-28 shrink-0">
+                        <p class="font-semibold text-[#253464] lg:text-[27px] text-[20px]">SĐT</p>
+                        <div class="font-medium text-[#253464] lg:text-[18px] text-[14px] flex flex-col items-center justify-center">
+                            <a class="hover:text-[#8FC4E4] hover:underline whitespace-nowrap">
+                                Jay: 0123 456 789
+                            </a>
+                            <a class="hover:text-[#8FC4E4] hover:underline whitespace-nowrap">
+                                Alice: 0384 786 451
+                            </a>
+                        </div>
+                    </div>
+                    <!--Email-->
+                    <div class="flex flex-1 flex-col items-center justify-center gap-2 lg:w-48 w-28">
+                        <p class="font-semibold text-[#253464] lg:text-[27px] text-[20px]">Email</p>
+                        <div class="font-medium text-[#253464] lg:text-[18px] text-[15px] flex flex-col items-center justify-center">
+                            <a href="mailto:nguyentuyetvan127@gmail.com" class="hover:text-[#8FC4E4] hover:underline transition-colors text-center">
+                                Cát Tường  
+                            </a>
+                            <a href="mailto:student242835@ptnk.edu.vn" class="hover:text-[#8FC4E4] hover:underline transition-colors text-center">
+                                Tuyết Vân
+                            </a>
+                        </div>
+                    </div>
+                    <!--Form-->
+                    <div class="flex flex-1 flex-col items-center justify-center gap-2 lg:w-48 w-28 shrink-0">
+                        <p class="font-semibold text-[#253464] lg:text-[27px] text-[20px]">Form</p>
+                        <div class="font-medium text-[#253464] lg:text-[18px] text-[16px] flex flex-col items-center justify-center">
+                            <a href="#" class="hover:text-[#8FC4E4] hover:underline transition-colors">Feedback</a>
+                            <a href="#" class="hover:text-[#8FC4E4] hover:underline transition-colors">Hợp tác</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+    </main>
+    <script src="../components/navbar.js"></script>
+    <!--Hiệu ứng AOS-cuộn-->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000, // Thời gian hiệu ứng (1 giây)
+            once: true      // Chỉ chạy animation 1 lần khi cuộn tới
+        });
+    </script>
+</body>
+
+</html>

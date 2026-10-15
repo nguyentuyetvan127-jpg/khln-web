@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Font chữ-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <title>Web Y Khoa</title>
+    <!-- Nhúng file CSS mà Tailwind biên dịch ra -->
+    <link href="../../../dist/output.css" rel="stylesheet">
+    <!--Icon-->
+    <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
+    <!--Hiệu ứng cuộn-->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+</head>
+
+<main class="bg-[#EFEEE5] h-screen flex gap-6 flex-col">
+    <!--Phần chữ-->
+    <section class="bg-[#84C5E4] py-4">
+        <!--nút quay lại-->
+        <header>
+            <nav>
+                <div class="lg:flex items-start mx-6 hidden">
+                    <a href="index.html" class="text-[#56ADD7] text-[25px] font-medium py-0.5 px-5 bg-white rounded-[99px] hover:shadow-[0_7px_3px_#6C80AE] transition-all duration-200">Quay lại</a>
+                </div>
+                <a href="index.html" class="lg:hidden flex items-start mx-6">
+                    <ion-icon name="arrow-back-outline" class="text-4xl bg-white text-[#56ADD7] font-medium rounded-full hover:shadow-[0_5px_5px_#6C80AE] transition-all duration-300"></ion-icon>
+                </a>
+            </nav>
+        </header>
+        <!--Tiêu đề-->
+        <div class="w-4/5 mx-auto" data-aos="zoom-in">
+            <p class="text-white lg:text-[43px] text-[30px] font-semibold text-center">Trước khi bắt đầu, chúng mình rất muốn biết một chút về độ tuổi và giới tính của bạn!</p>
+        </div>
+    </section>
+
+    <!--Trang thông tin-->
+    <section class="flex flex-1 lg:flex-col justify-center">
+        <div class="flex flex-col lg:gap-6 gap-10 items-center justify-center">
+            <!--Phần điền thông tin-->
+            <div class="flex lg:flex-row flex-col justify-between lg:w-2/3 lg:mx-auto items-center gap-6" data-aos="zoom-in">
+                <!--Phần tuổi-->
+                <div class="bg-[#C4DDE9] rounded-[20px] flex flex-col items-center justify-center gap-2 lg:w-65 lg:h-60 w-50 h-45 shadow-[0_8px_4px_#6b7fad]">
+                    <p class="text-[#253464] lg:text-[30px] text-[25px] font-semibold">Độ tuổi</p>
+                    <input type="text" class="bg-[#F4F9FF] rounded-[20px] lg:w-30 lg:h-30 w-23 h-23 text-center lg:text-[30px] text-[25px] text-[#253464] font-medium focus:outline-none"/>
+                </div>
+                <!--Phần giới tính-->
+                <div class=" bg-[#C4DDE9] rounded-[20px] flex flex-col items-center justify-center gap-2 lg:w-75 lg:h-60 w-50 h-50 shadow-[0_8px_4px_#6b7fad]">
+                    <p class="text-[#253464] lg:text-[30px] text-[25px] font-semibold">Giới tính</p>
+                    <div class="flex flex-col gap-4">
+                        <!--Nam-->
+                        <label class="cursor-pointer">
+                            <input type="radio" name="gender" value="male" class="peer hidden"/>
+                            <div class="bg-white lg:w-50 lg:h-12 w-40 h-10 font-medium text-[#253464] lg:text-[23px] text-[20px] lg:rounded-[20px] rounded-[10px] peer-checked:shadow-[0_5px_4px_#253464] transition-all duration-300 flex items-center justify-center">
+                                <p>Nam</p>
+                            </div>
+                        </label>
+                        <!--Nữ-->
+                        <label class="cursor-pointer">
+                            <input type="radio" name="gender" value="female" class="peer hidden"/>
+                            <div class="bg-white lg:w-50 lg:h-12 w-40 h-10 font-medium text-[#253464] lg:text-[23px] text-[20px] lg:rounded-[20px] rounded-[10px] peer-checked:shadow-[0_5px_4px_#253464] transition-all duration-300 flex items-center justify-center">
+                                <p>Nữ</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!--Phần continue-->
+            <a href="diagnosis.html" class="w-full flex justify-center items-center" data-aos="zoom-in" data-aos-offset="0" data-aos-anchor-placement="top-bottom">
+                <button class=" text-white text-[25px] font-medium bg-[#84C5E4] px-4 py-2 rounded-[20px] cursor-pointer hover:shadow-[0_5px_4px_#253464] transition-all duration-200">Tiếp tục</button>
+            </a>
+        </div>
+    </section>
+
+    <!--Hiệu ứng AOS-cuộn-->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800, // Thời gian hiệu ứng (1 giây)
+            once: true      // Chỉ chạy animation 1 lần khi cuộn tới
+        });
+    </script>
+</main>
+
+
+
+
+</html>

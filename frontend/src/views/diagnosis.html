@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Font chữ-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <title>Web Y Khoa</title>
+    <!-- Nhúng file CSS mà Tailwind biên dịch ra -->
+    <link href="../../../dist/output.css" rel="stylesheet">
+    <!--Icon-->
+    <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
+    <!--Hiệu ứng cuộn-->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+</head>
+
+<body class="flex flex-col h-screen">
+    <!--Header-->
+    <section id="header" class="bg-[#C4DDE9] relative lg:py-8 py-6">
+        <header class="flex flex-row items-center justify-between lg:gap-10 gap-2 lg:w-4/5 mx-auto lg:px-0 px-5">
+            <a href="personInfor.html">
+                <ion-icon name="arrow-back-outline" class="lg:text-5xl text-3xl bg-white text-[#56ADD7] font-medium rounded-full hover:shadow-[0_5px_5px_#6C80AE] transition-all duration-300"></ion-icon>
+            </a>
+            <!--Phần nhập triệu chứng-->    
+            <input type="text" 
+                   id="symptomSearch" 
+                   placeholder="Chọn từ model cơ thể hoặc nhập triệu chứng của bạn" 
+                   class="lg:block hidden bg-[#84C5E4] text-[#F4F9FF] font-medium lg:text-[23px] text-[15px] italic placeholder:text-[#F4F9FF] py-3 px-6 rounded-full outline-none border-none shadow-[0_7px_4px_#6C80AE] w-full">
+            <input type="text" 
+                   id="symptomSearch" 
+                   placeholder="Nhập triệu chứng của bạn" 
+                   class="lg:hidden block bg-[#84C5E4] text-[#F4F9FF] font-medium lg:text-[23px] text-[15px] italic placeholder:text-[#F4F9FF] py-3 px-6 rounded-full outline-none border-none shadow-[0_7px_4px_#6C80AE] w-full">
+        </header>
+    </section>
+
+    <!--Main Content-->
+    <section id="mainContent" class="flex lg:flex-row flex-col flex-1 h-fit w-full bg-[#EFEEE5] relative items-center justify-center ">
+        <!--Thông tin bệnh-->
+        <div id="gapAdjust" class="w-full h-screen lg:ml-10 ml-5 mt-10 flex-col hidden">
+            <div class="">
+                <ion-icon id="returnModel" name="arrow-back-outline" class="lg:text-4xl text-4xl text-white py-3 px-3 bg-[#253464] rounded-2xl cursor-pointer"></ion-icon>
+            </div>
+            <div class="">
+                <div id="symtom-container"></div>
+            </div>
+        </div>
+        
+
+        <!--Model-->
+        <section class="model-container flex justify-center items-center w-full">
+            <div class="character-container relative w-150 -mt-10 transform scale-100 origin-none transition-transform duration-700">
+                <!-- BASE LAYER: Remove 'absolute' so it establishes the container height -->
+                <img src="../asset/body model/Base color og.png" id="Character" class="w-full pointer-events-none">
+                <!-- HIGHLIGHT LAYERS -->
+                <!--Đầu-->
+                <img src="../asset/body model/forehead.png" id="forehead-highlight" alt="Head" class="highlight-layer absolute top-0 left-0 w-full opacity-0 transition-opacity duration-500 pointer-events-none">
+                <img src="../asset/body model/hair.png" id="hair-highlight" alt="Head" class="highlight-layer absolute top-0 left-0 w-full opacity-0 transition-opacity duration-500 pointer-events-none">
+                <img src="../asset/body model/Ear.png" id="ear-highlight" alt="Head" class="highlight-layer absolute top-0 left-0 w-full opacity-0 transition-opacity duration-500 pointer-events-none">
+                <img src="../asset/body model/Eyes.png" id="eyes-highlight" alt="Head" class="highlight-layer absolute top-0 left-0 w-full opacity-0 transition-opacity duration-500 pointer-events-none">
+                <img src="../asset/body model/Nose.png" id="nose-highlight" alt="Head" class="highlight-layer absolute top-0 left-0 w-full opacity-0 transition-opacity duration-500 pointer-events-none">
+                <img src="../asset/body model/Mouth.png" id="mouth-highlight" alt="Head" class="highlight-layer absolute top-0 left-0 w-full opacity-0 transition-opacity duration-500 pointer-events-none">
+                <img src="../asset/body model/Cheek.png" id="cheek-highlight" alt="Head" class="highlight-layer absolute top-0 left-0 w-full opacity-0 transition-opacity duration-500 pointer-events-none">
+                <img src="../asset/body model/Jaw.png" id="jaw-highlight" alt="Head" class="highlight-layer absolute top-0 left-0 w-full opacity-0 transition-opacity duration-500 pointer-events-none">
+                <!--Thân-->
+                <img src="../asset/body model/Chest.png" id="chest-highlight" alt="Chest" class="highlight-layer absolute top-0 left-0 w-full opacity-0 transition-opacity duration-500 pointer-events-none">
+                <img src="../asset/body model/Neck.png" id="neck-highlight" alt="Neck" class="highlight-layer absolute top-0 left-0 w-full opacity-0 transition-opacity duration-500 pointer-events-none">
+                <img src="../asset/body model/Hands.png" id="hands-highlight" alt="Hands" class="highlight-layer absolute top-0 left-0 w-full opacity-0 transition-opacity duration-500 pointer-events-none">
+                <img src="../asset/body model/Leg area.png" id="leg-highlight" alt="Legs" class="highlight-layer absolute top-0 left-0 w-full opacity-0 transition-opacity duration-500 pointer-events-none">
+                <img src="../asset/body model/Stomach.png" id="stomach-highlight" alt="Stomach" class="highlight-layer absolute top-0 left-0 w-full opacity-0 transition-opacity duration-500 pointer-events-none">
+                <img src="../asset/body model/Bottom.png" id="bottom-highlight" alt="Bottom" class="highlight-layer absolute top-0 left-0 w-full opacity-0 transition-opacity duration-500 pointer-events-none">
+
+                <!-- LINEART LAYER -->
+                <img src="../asset/body model/Lineart.png" id="Lineart" class="lineart-image absolute top-0 left-0 w-full block pointer-events-none">
+
+                <!--Interactive box-->
+                <div class="absolute top-0 left-0 w-full pointer-events-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1333" class="w-full h-auto">
+                        <!-- Vùng Tóc (Hair) - Màu đỏ -->
+                        <path 
+                            class="interactive-box hair-interactive cursor-pointer"
+                            pointer-events="all"
+                            fill="rgba(0,0,0,0)"
+                            data-target="hair-highlight"
+                            d="M 267,337 L 275,346 L 326,272 L 389,225 L 471,203 L 549,199 L 596,209 L 660,236 L 733,299 L 770,345 L 775,365 L 783,362 L 765,336 L 760,286 L 704,218 L 616,165 L 548,149 L 479,150 L 443,158 L 392,181 L 340,215 L 293,270 Z" 
+                            data-type="hair"
+                        />
+                        <!-- Vùng Trán (Forehead) - Màu xanh -->
+                        <path 
+                            id="interactive-forehead" 
+                            class="interactive-box forehead-interactive cursor-pointer"
+                            pointer-events="all"
+                            fill="rgba(0,0,0,0)"
+                            data-target="forehead-highlight"
+                            d="M 266,351 L 276,357 L 311,319 L 337,302 L 387,287 L 570,301 L 661,286 L 727,313 L 760,339 L 771,338 L 773,329 L 753,298 L 715,258 L 670,229 L 575,199 L 476,192 L 411,206 L 345,243 L 294,294 Z" 
+                            data-type="Forehead"
+                        />
+                        <!-- Vùng Má (Cheek) - Bao gồm cả 2 bên má -->
+                        <path 
+                            id="interactive-cheek" 
+                            class="interactive-box cheek-highlight cursor-pointer"
+                            pointer-events="all"
+                            fill="rgba(0,0,0,0)"
+                            data-target="cheek-highlight"
+                            d="M 270,430 L 270,438 L 274,444 L 272,454 L 277,477 L 288,503 L 287,514 L 290,518 L 306,525 L 353,536 L 375,537 L 389,535 L 408,529 L 422,521 L 438,506 L 444,494 L 448,478 L 448,458 L 430,463 L 429,469 L 420,475 L 408,476 L 390,469 L 362,465 L 326,456 L 292,440 L 273,427 Z M 771,436 L 745,453 L 728,460 L 701,465 L 659,467 L 646,472 L 635,473 L 619,470 L 591,458 L 588,465 L 590,487 L 600,508 L 615,522 L 637,534 L 677,543 L 720,541 L 731,536 L 733,530 L 743,522 L 756,498 L 769,461 Z" 
+                            data-type="Cheek"
+                        />
+                        <!-- Vùng Cằm/Quai hàm (Jaw) -->
+                        <path 
+                            id="interactive-jaw" 
+                            class="interactive-box jaw-interactive cursor-pointer"
+                            pointer-events="all"
+                            fill="rgba(0,0,0,0)"
+                            data-target="jaw-highlight"
+                            d="M 301,524 L 309,541 L 323,542 L 367,572 L 416,587 L 477,596 L 563,596 L 643,582 L 678,570 L 711,547 L 719,547 L 725,541 L 725,533 L 736,527 L 732,520 L 718,518 L 666,520 L 630,546 L 594,562 L 543,575 L 498,575 L 447,563 L 411,544 L 385,520 L 336,516 L 308,519 Z" 
+                            data-type="Jaw"
+                        />
+                        <!-- Vùng Mũi (Nose) -->
+                        <path 
+                            id="interactive-nose" 
+                            class="interactive-box nose-interactive cursor-pointer"
+                            pointer-events="all"
+                            fill="rgba(0,0,0,0)"
+                            data-target="nose-highlight"
+                            d="M 507,443 L 503,447 L 494,469 L 494,485 L 498,490 L 513,496 L 534,495 L 543,491 L 546,485 L 546,472 L 540,451 L 533,444 L 526,441 L 517,440 Z" 
+                            data-type="Nose"
+                        />
+                        <!-- Vùng Miệng (Mouth) -->
+                        <path 
+                            id="interactive-mouth" 
+                            class="interactive-box mouth-interactive cursor-pointer"
+                            pointer-events="all"
+                            fill="rgba(0,0,0,0)"
+                            data-target="mouth-highlight"
+                            d="M 450,547 L 460,560 L 471,565 L 506,572 L 541,572 L 564,567 L 581,558 L 589,548 L 591,536 L 584,527 L 569,520 L 530,513 L 503,513 L 480,517 L 460,525 L 451,536 Z" 
+                            data-type="mouth"
+                        />
+                        <!-- Vùng Mắt (Eyes) -->
+                        <path 
+                            id="interactive-eyes" 
+                            class="interactive-box eyes-interactive cursor-pointer"
+                            pointer-events="all"
+                            fill="rgba(0,0,0,0)"
+                            data-target="eyes-highlight"
+                            d="M 778,363 L 767,350 L 766,332 L 751,314 L 712,291 L 687,285 L 627,281 L 539,293 L 463,283 L 372,283 L 318,305 L 288,329 L 266,356 L 269,385 L 261,406 L 280,434 L 302,452 L 377,477 L 505,466 L 708,475 L 749,467 L 766,456 L 775,427 L 766,414 L 767,375 Z" 
+                            data-type="eyes"
+                        />
+                        <!-- Vùng Tai (Ears) -->
+                        <path 
+                            id="interactive-ears" 
+                            class="interactive-box ear-interactive cursor-pointer"
+                            pointer-events="all"
+                            fill="rgba(0,0,0,0)"
+                            data-target="ear-highlight"
+                            d="M 782,353 L 779,354 L 779,417 L 764,489 L 766,493 L 790,486 L 808,473 L 818,461 L 828,434 L 826,409 L 818,390 L 801,369 Z M 259,353 L 250,359 L 221,391 L 213,413 L 212,434 L 223,463 L 235,476 L 248,485 L 274,492 L 276,489 L 262,427 L 261,354 Z" 
+                            data-type="ears"
+                        />
+                        <!-- Vùng Cổ (Neck) -->
+                        <path 
+                            class="interactive-box neck-interactive cursor-pointer" 
+                            pointer-events="all"
+                            fill="rgba(0,0,0,0)"
+                            data-target="neck-highlight"
+                            d="M 660,638 L 656,630 L 637,627 L 634,613 L 624,601 L 601,595 L 540,600 L 435,598 L 426,608 L 414,608 L 395,627 L 400,635 L 439,650 L 485,661 L 531,666 L 610,659 L 647,648 Z" 
+                            data-type="Neck"
+                        />
+                        <!-- Vùng Ngực (Chest) -->
+                        <path 
+                            class="interactive-box chest-interactive cursor-pointer" 
+                            pointer-events="all"
+                            fill="rgba(0,0,0,0)"
+                            data-target="chest-highlight"
+                            d="M 392,629 L 379,696 L 384,793 L 440,767 L 529,764 L 582,777 L 651,809 L 663,808 L 671,796 L 660,717 L 658,637 L 650,627 L 539,658 L 472,651 L 400,622 Z" 
+                            data-type="Chest"
+                        />
+                        <!-- BỤNG (STOMACH) -->
+                        <path 
+                            class="interactive-box stomach-interactive cursor-pointer"
+                            pointer-events="all"
+                            fill="rgba(0,0,0,0)"
+                            data-target="stomach-highlight"
+                            data-type="Stomach"
+                            d="M 365,760 C 400,740 620,740 655,760 C 675,810 675,900 655,950 C 600,990 420,990 365,950 C 345,900 345,810 365,760 Z" 
+                        />
+                        <!-- TAY (HANDS - Bao gồm cả tay trái và tay phải) -->
+                        <path 
+                            id="interactive-hands" 
+                            class="interactive-box hands-interactive cursor-pointer"
+                            pointer-events="all"
+                            fill="rgba(0,0,0,0)"
+                            data-target="hands-highlight"
+                            data-type="Hands"
+                            d="M 388,646 L 310,724 C 275,752 240,735 190,750 C 160,775 160,840 210,870 C 265,880 295,825 320,785 L 388,710 C 398,680 398,660 388,646 Z M 636,646 L 714,724 C 749,752 784,735 834,750 C 864,775 864,840 814,870 C 759,880 729,825 704,785 L 636,710 C 626,680 626,660 636,646 Z" 
+                        />
+                        <!-- MÔNG / HÔNG (BOTTOM) -->
+                        <path 
+                            class="interactive-box bottom-interactive cursor-pointer"
+                            pointer-events="all"
+                            fill="rgba(0,0,0,0)"
+                            data-target="bottom-highlight"
+                            data-type="Bottom"
+                            d="M 360,900 C 350,880 380,870 400,880 L 512,940 L 624,880 C 644,870 674,880 664,900 C 670,940 630,1010 512,1010 C 394,1010 354,940 360,900 Z" 
+                        />
+                        <!-- CHÂN (LEGS - Ghép chung cả 2 chân trái và phải) -->
+                        <path 
+                            class="interactive-box leg-interactive cursor-pointer"
+                            pointer-events="all"
+                            fill="rgba(0,0,0,0)"
+                            data-target="leg-highlight"
+                            data-name="Legs"
+                            d="M 370,960 L 490,1010 L 485,1180 C 485,1210 495,1230 450,1230 C 380,1230 385,1210 385,1180 L 370,960 Z M 534,1010 L 654,960 L 639,1180 C 639,1210 644,1230 574,1230 C 529,1230 539,1210 539,1180 L 534,1010 Z" 
+                        />
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!--Checklist-->
+        <div id="checklistTable" class="fixed top-[30%] right-[5%] lg:h-100 h-105 bg-[#C4DDE9] lg:w-70 w-65 rounded-b-2xl shadow-[0px_9px_4px_0px_#6C80AE] flex-col transition-transform duration-300">
+            <!--Đóng mở-->
+            <div id="checklistButton" class="bg-[#253464] shadow-[0_8px_4px_0_#6C80AE] top-0 right-full flex justify-center items-center h-20 w-15 absolute rounded-[5px]">
+                <ion-icon id="checklistIcon" name="close-outline" class="text-[#C4DDE9] text-5xl font-bold"></ion-icon>
+            </div>
+            <!--Header-->
+            <div class="w-full py-2 bg-[#84C5E4] lg:text-[28px] text-[22px]">
+                <p class="text-center font-bold text-[#253464]">Checklist</p>
+            </div>
+            <!--Danh sách triệu chứng--> 
+            <div id="checklist-container" class="px-3 pt-5 space-y-3 overflow-auto lg:h-70 h-80"></div>
+            <!--Xác nhận triệu chứng-->
+            <div class="flex w-full items-center justify-center">
+                <button id="letsGoBtn" type="button" class="font-bold text-[#253464] lg:text-[23px] text-[20px] bg-[#F4F9FF] px-6 py-1 rounded-full hover:shadow-[0_7px_3px_#4D5F99] transition-all duration-200">
+                    Xem chẩn đoán
+                </button>
+            </div>
+        </div>
+    </section>
+    <script src="../components/symptoms.js"></script>
+</body>
+
+</html>

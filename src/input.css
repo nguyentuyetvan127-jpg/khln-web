@@ -1,0 +1,21 @@
+@import "tailwindcss";
+@source "../frontend";
+
+@theme {
+  --font-sans: 'Lexend', sans-serif;
+  --color-pastel-creamBg: #FAF6EE;
+  --color-pastel-creamCard: #FFFDF9;
+  --color-pastel-creamBorder: #EFE7D8;
+  --color-pastel-creamDark: #F3E8D3;
+  --color-pastel-blueSoft: #E6F0FA;
+  --color-pastel-blueMedium: #B2D8FB;
+  --color-pastel-bluePrimary: #4A90E2;
+  --color-pastel-blueDark: #2C5898;
+  --color-pastel-textDark: #2D3748;
+  --color-pastel-textMuted: #718096;
+  --color-crimson: #A41D3B;
+  --color-brown-orange: #BD5B27;
+  --color-dark-yellow: #C28200;
+  --color-teal-green: #1D825E;
+  --color-dark-teal: #0B6958;
+}

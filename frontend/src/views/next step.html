@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--Font chữ-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+  <title>nexxt step</title>
+  <!-- Nhúng file CSS mà Tailwind biên dịch ra -->
+  <link href="../../../dist/output.css" rel="stylesheet">
+  <!--Icon-->
+  <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
+  <!--Hiệu ứng cuộn-->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+</head>
+<body class="bg-[#EFEEE5] h-screen flex flex-col w-full">
+    <header class="flex justify-center w-full bg-[#84C5E4] py-4 lg:h-30">
+      <div class="flex flex-row justify-between items-center w-full px-4 lg:px-8">
+        <button class="bg-white text-[#56ADD7] lg:text-[30px] text-[22px] font-medium rounded-full px-2">Previous</button>
+        <div class="lg:w-16 w-12 lg:h-16 h-12 flex items-center justify-center bg-white rounded-full">
+          <ion-icon name="home" class="text-[#253464] lg:text-4xl text-3xl w-full"></ion-icon>
+        </div>
+      </div>
+    </header>
+
+    <main class="w-full flex lg:flex-row flex-col">
+      <!--Kết quả bệnh-->
+      <section class="flex flex-col justify-center gap-2 lg:pr-0 lg:pl-4 px-4 lg:flex-1 max-w-lg mt-4">
+        <div class="lg:flex-1 lg:flex lg:flex-col lg:gap-2">
+          <span class="font-medium text-[#253464] lg:text-[26px] text-[18px] wrap-break-word">
+            You might be experiencing symptoms of:
+          </span> 
+          <div class="flex flex-row gap-2 cursor-pointer">
+            <div class="w-5 h-5 rounded-full bg-[#84C5E4]"></div>
+            <span class="font-medium text-[16px] text-[#253464]">Understanding the results</span>
+          </div>
+        </div>
+        <!--Khung bệnh-->
+        <div class="flex lg:flex-5 lg:flex-col flex-row lg:gap-4 gap-2 overflow-x-scroll pb-4 lg:rounded-2xl lg:bg-[#C4DDE9]">
+          <div class="flex flex-col lg:items-start items-center justify-center shrink-0 bg-[#84C5E4] lg:rounded-2xl rounded-full px-4 lg:py-10 py-2 lg:shadow-[0_4px_4px_#7185B1] shadow-[0_3px_4px_#253464]">
+            <span class="text-[#253464] font-semibold lg:text-[35px] text-[22px]">Common Fever</span>
+            <span class="text-[#253464] font-medium text-[16px]">Let's take it easy today</span>
+          </div>
+          <div class="flex flex-col lg:items-start items-center justify-center shrink-0 lg:bg-transparent  bg-[#DFE1B7] lg:rounded-none rounded-full px-4 py-2">
+            <span class="text-[#253464] font-semibold lg:text-[30px] lg:pb-2 text-[16px] lg:border-b-4 w-full">Covid-19</span>
+          </div>
+          <div class="flex flex-col lg:items-start items-center justify-center shrink-0 lg:bg-transparent  bg-[#DFE1B7] lg:rounded-none rounded-full px-4 py-2">
+            <span class="text-[#253464] font-semibold lg:text-[30px] lg:pb-2 text-[16px] lg:border-b-4 w-full">Flu</span>
+          </div>
+          <div class="flex flex-col lg:items-start items-center justify-center shrink-0 lg:bg-transparent  bg-[#DFE1B7] lg:rounded-none rounded-full px-4 py-2">
+            <span class="text-[#253464] font-semibold lg:text-[30px] lg:pb-2 text-[16px] lg:border-b-4 w-full">Mengities</span>
+          </div>
+        </div>
+      </section>
+
+      <!--Chi tiết bệnh-->
+      <section class="flex flex-col lg:flex-2 justify-center items-center bg-white lg:ml-10 mx-4 lg:px-12 px-4 py-2 rounded-2xl mt-4 gap-4 shadow-[0_5px_4px_#84C5E4]">
+        <!--Strong match-->
+        <div class="flex flex-row w-full items-center justify-end gap-2">
+            <div class="lg:w-50 w-32 lg:h-4 h-3 bg-[#C7E9C4] rounded-full"></div>
+            <span class="lg:text-[22px] text-[16px] ">Strong match</span>
+            <ion-icon name="information-circle-outline" class="text-lg"></ion-icon>
+        </div>
+        <span class="lg:block hidden font-semibold text-[38px] text-[#253464] text-center">Common Fever</span>
+        <!--Next step & What is it-->
+        <div class="flex items-center justify-center w-full lg:gap-12 gap-3 mb-2">
+            <button class="text-[#253464] font-semibold lg:text-[25px] text-[18px] text-center bg-[#84C5E4] rounded-full flex-1 py-1 ">What is it?</button>
+            <button class="text-[#253464] font-semibold lg:text-[25px] text-[18px] text-center bg-[#84C5E4] rounded-full flex-1 py-1 shadow-[0_4px_4px_#253464]">View Next Step!</button>
+        </div>
+            
+        <div class="flex lg:max-h-130 max-h-115 flex-col w-full gap-2 overflow-y-scroll">
+            <span class="text-[#253464] font-medium lg:text-[20px] text-[14px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi</span>
+            <div class="flex lg:flex-row flex-col lg:gap-0 gap-2">
+              <!--Nội dung-->
+              <div class="flex-1 flex flex-col gap-3">
+                <!--Simple home remèies-->
+                <div class="w-full flex flex-col items-start">
+                  <span class="text-[#253464] font-semibold lg:text-[24px] text-[18px]">Simple home remedies</span>
+                  <ul id="symptoms-result-container" class="flex flex-col text-[#253464] font-medium lg:text-[20px] text-[14px] list-disc pl-5 ">
+                    <li class="wrap-break-word">Drink water frequently, warm herbal tea can work as well.</li>
+                    <li class="wrap-break-word">Get extra rest and wear lightweight clothing.</li>
+                    <li class="wrap-break-word">Apply a damp, cool cloth to your forehead or back of the neck for comfort.</li>
+                  </ul>
+                </div>
+                <!--Keep a friendly eye on this!-->
+                <div class="w-full flex flex-col items-start gap-1">
+                  <span class="text-[#253464] font-semibold lg:text-[24px] text-[18px]">Keep a friendly eye on this!</span>
+                  <ul id="symptoms-result-container" class="flex flex-col text-[#253464] font-medium lg:text-[20px] text-[14px] list-disc pl-5 ">
+                    <li class="wrap-break-word">Monitor your body temperature every 4 hours.</li>
+                    <li class="wrap-break-word">If your fever stays above 38.5°C (101.3°F) for more than 3 consecutive days, please check in with a healthcare professional or tell a trusted adult.</li>
+                  </ul>
+                </div>
+              </div>
+              <!--Illútration & Button-->
+              <div class="flex-1 w-full flex flex-col items-center justify-center lg:gap-4 gap-2 mb-2 shrink-0">
+                  <img src="../asset/BHJT.png" class="lg:w-80 w-40 lg:h-80 h-40 ">
+                  <button class="bg-[#253464] font-medium text-white lg:text-[24px] text-[15px] rounded-full px-4 cursor-pointer w-fit">Save to collection</button>
+                  <button class="bg-[#253464] font-medium text-white lg:text-[24px] text-[15px] rounded-full px-4 cursor-pointer">Find a local routine clinic</button>
+              </div>
+            </div>
+        </div>    
+      </section>
+    </main>
+  <script>
+    const headers = document.querySelectorAll('.alert-header');
+
+    headers.forEach(header => {
+      header.addEventListener('click', () => {
+        const content = document.querySelector('.alert-content');
+        const toggleIcon = document.querySelector('.toggle-icon');
+
+        content.classList.toggle('max-h-0');
+        content.classList.toggle('max-h-96'); 
+
+        // Đổi icon
+        const isOpen = content.classList.contains('max-h-96');
+        toggleIcon.name = isOpen ? "chevron-up-outline" : "chevron-down-outline";
+        });
+    });
+  </script>
+</body>
+</html>

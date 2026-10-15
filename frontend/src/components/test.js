@@ -401,11 +401,6 @@ function generateEachWeb_Test(variant) {
               </p>
           </div>
 
-          <!--Minh họa-->
-          <div class="flex justify-center">
-              <img src="../asset/sam_model.png" alt="SAM Scale Illustration" class="w-full max-w-lg rounded-xl shadow-md border border-pastel-creamBorder">
-          </div>
-
           <!-- Thang đo Likert 1 -> 5 (Dàn 5 cột tự co giãn trên Mobile & Desktop) -->
           <div class="grid grid-cols-5 gap-1.5 sm:gap-3">
             <!-- Mức 1: Hoàn toàn thả lỏng / Bình tĩnh -->
@@ -626,29 +621,6 @@ function goToStep(targetStep) {
     // Cuộn lên đầu trang
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-
-const images = [
-        "../asset/hd_thao_tac/may_tinh.jpg",
-        "../asset/hd_thao_tac/dien_thoai.png",
-        "../asset/hd_thao_tac/song_song.png"
-    ];
-
-    let currentIndex = 0;
-
-    function updateImage() {
-        const imgElement = document.getElementById("sliderImage");
-        imgElement.src = images[currentIndex];
-    }
-
-    function nextSlide() {
-        currentIndex = (currentIndex + 1) % images.length;
-        updateImage();
-    }
-
-    function prevSlide() {
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-        updateImage();
-    }
 
 renderSTAIS_Questions();
 renderND_UI_Questions();

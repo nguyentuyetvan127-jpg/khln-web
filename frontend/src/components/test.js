@@ -412,7 +412,6 @@ function generateEachWeb_Test(variant) {
             <label class="cursor-pointer">
               <input type="radio" name="q1_body_reaction" value="1" class="sr-only peer" required />
               <div class="flex flex-col items-center justify-between h-full p-2 sm:p-3 rounded-xl border border-pastel-creamBorder bg-white transition-all peer-checked:bg-pastel-blueSoft peer-checked:border-pastel-bluePrimary peer-checked:text-pastel-blueDark hover:border-pastel-blueMedium text-center">
-                <!-- Có thể chèn <img> hình SAM 1 ở đây nếu có ảnh -->
                 <span class="text-xs sm:text-sm font-bold w-6 h-6 rounded-full bg-pastel-creamBg flex items-center justify-center mb-1">1</span>
                 <span class="text-[10px] sm:text-xs font-medium leading-tight">Hoàn toàn thả lỏng / bình tĩnh</span>
               </div>
@@ -630,8 +629,8 @@ function goToStep(targetStep) {
 
 const images = [
         "../asset/hd_thao_tac/may_tinh.jpg",
-        "../asset/hd_thao_tac/dien_thoai.jpg",
-        "../asset/hd_thao_tac/song_song.jpg"
+        "../asset/hd_thao_tac/dien_thoai.png",
+        "../asset/hd_thao_tac/song_song.png"
     ];
 
     let currentIndex = 0;

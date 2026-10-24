@@ -4,67 +4,27 @@
 
 const DATABASE = {
   // Head / Forehead
-  'headache': 'forehead',
-  'fever': 'forehead',
+  'sốt cao': 'forehead',
+  'sốt': 'forehead',
   'swelling': 'forehead',
   'fatigue': 'forehead',
   'tension': 'forehead',
-  'eye pain': 'eyeache',
-  'ear pain': 'earache',
-  'mouth pain': 'mouthache',
-  'jaw pain': 'jawache',
-  'cheek pain': 'cheekache',
-  // Neck
-  'neckache': 'neckache',
-  'neck ache': 'neckache',
-  'stiff neck': 'neckache',
-  'neck stiffness': 'neckache',
-  'sore throat': 'neckache',
-  'neck pain': 'neckache',
-  // Chest
-  'chest pain': 'chest',
-  'chest hurt': 'chest',
-  'chest tightness': 'chest',
-  'chest pressure': 'chest',
-  'shortness of breath': 'chest',
-  'breathless': 'chest',
-  'heartburn': 'chest',
-  'heart pain': 'chest',
-  // Stomach
-  'stomach ache': 'stomachache',
-  'belly pain': 'stomachache',
-  'abdominal pain': 'stomachache',
-  'bloating': 'stomachache',
-  'gas': 'stomachache',
-  'nausea': 'stomachache',
-  'vomiting': 'stomachache',
-  'cramps': 'stomachache',
-  'stomach cramp': 'stomachache',
-  'indigestion': 'stomachache',
-  // Hands
-  'finger pain': 'hands',
-  'handache': 'hands',
-  'hand pain': 'hands',
-  'wrist pain': 'hands',
-  'numb hands': 'hands',
-  'tingling hands': 'hands',
-  'swollen finger': 'hands',
-  // Legs
-  'leg pain': 'legs',
-  'knee pain': 'legs',
-  'ankle pain': 'legs',
-  'foot pain': 'legs',
-  'toe pain': 'legs',
-  'calf pain': 'legs',
-  'numb legs': 'legs',
-  'leg cramps': 'legs',
-  // Bottom
-  'hip pain': 'bottom',
-  'buttock pain': 'bottom',
-  'butt ache': 'bottom',
-  'lower back pain': 'bottom',
-  'tailbone pain': 'bottom',
-  'pelvic pain': 'bottom'
+  'đầu': 'forehead',
+  'trán': 'forehead',
+  'khuôn mặt': 'forehead',
+  'mặt': 'forehead',
+  'thái dương': 'forehead',
+  'đau nửa đầu': 'forehead',
+  'chóng mặt': 'forehead',
+  'nhức đầu': 'forehead',
+  'đau đầu': 'forehead',
+  'nóng trán': 'forehead',
+  'vùng trán': 'forehead',
+  'căng thẳng': 'forehead',
+  'tran': 'forehead',
+  'dau dau': 'forehead',
+  'dau': 'forehead',
+  'sot': 'forehead',
 };
 
 const HIGHLIGHT_MAP = {
@@ -85,11 +45,11 @@ const TARGET_TO_TYPE_MAP = {
 
 const DATA_LIST = {
   forehead: [
-    { id: 1, name: "Fever", desc: "Cảm giác thắt chặt hai bên thái dương", icon: "../asset/symptom-illu/fever.png"},
-    { id: 2, name: "Fatigue", desc: "Cảm giác thắt chặt hai bên thái dương", icon: "../asset/symptom-illu/fatigue.png"},
-    { id: 3, name: "Swelling", desc: "Cảm giác thắt chặt hai bên thái dương", icon: "../asset/symptom-illu/swelling.png"},
-    { id: 4, name: "Tension", desc: "Cảm giác thắt chặt hai bên thái dương", icon: "../asset/symptom-illu/tension.png"},
-    { id: 5, name: "Headache", desc: "Cảm giác thắt chặt hai bên thái dương", icon: "../asset/symptom-illu/headache.png"},
+    { id: 1, name: "Sốt", desc: "Cảm giác thắt chặt hai bên thái dương", icon: "../asset/symptom-illu/fever.png"},
+    { id: 2, name: "Mệt mỏi", desc: "Cảm giác thắt chặt hai bên thái dương", icon: "../asset/symptom-illu/fatigue.png"},
+    { id: 3, name: "Sưng tấy", desc: "Cảm giác thắt chặt hai bên thái dương", icon: "../asset/symptom-illu/swelling.png"},
+    { id: 4, name: "Căng cơ", desc: "Cảm giác thắt chặt hai bên thái dương", icon: "../asset/symptom-illu/tension.png"},
+    { id: 5, name: "Đau đầu", desc: "Cảm giác thắt chặt hai bên thái dương", icon: "../asset/symptom-illu/headache.png"},
   ]
 };
 
@@ -147,7 +107,7 @@ function getParsedSearchSymptoms() {
   if (!searchInput) return [];
   return searchInput.value
     .toLowerCase()
-    .replace(/[^a-z0-9\s,;/_-]/g, '')
+    .replace(/[^\p{L}0-9\s,;/_-]/gu, '')
     .split(/[,;/]+|\band\b/)
     .map(item => item.trim())
     .filter(Boolean);
@@ -412,7 +372,7 @@ function renderSymptoms(type) {
             Tính năng nhập thông tin chi tiết cho triệu chứng <strong>${activeItem.name}</strong> đang trong quá trình phát triển.
           </p>
           <p class="text-[#526399] text-[15px] italic mt-2">
-            (Bản thử nghiệm Prototype hiện tại chỉ hỗ trợ triệu chứng <strong>Fever</strong>)
+            (Bản thử nghiệm Prototype hiện tại chỉ hỗ trợ triệu chứng <strong>Sốt</strong>)
           </p>
         </div>
         <button onclick="deselectSymptom()" class="bg-[#84C5E4] text-white font-bold text-[18px] px-6 py-2 rounded-full hover:shadow-md transition-all cursor-pointer">
